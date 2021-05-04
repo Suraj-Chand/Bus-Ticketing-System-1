@@ -29,16 +29,17 @@ namespace Bus_Ticketing_System_1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.deleteticketbtn = new System.Windows.Forms.Button();
@@ -153,6 +154,8 @@ namespace Bus_Ticketing_System_1
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.mailtextBox = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.rolecomboBox = new System.Windows.Forms.ComboBox();
             this.addemployeedgv = new System.Windows.Forms.DataGridView();
@@ -165,6 +168,7 @@ namespace Bus_Ticketing_System_1
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column47 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.addemployeebtn = new System.Windows.Forms.Button();
@@ -275,6 +279,7 @@ namespace Bus_Ticketing_System_1
             this.deleteticketbtn.TabIndex = 21;
             this.deleteticketbtn.Text = "Delete  Ticket";
             this.deleteticketbtn.UseVisualStyleBackColor = false;
+            this.deleteticketbtn.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // updateticketbtn
             // 
@@ -288,6 +293,7 @@ namespace Bus_Ticketing_System_1
             this.updateticketbtn.TabIndex = 21;
             this.updateticketbtn.Text = "Update Ticket";
             this.updateticketbtn.UseVisualStyleBackColor = false;
+            this.updateticketbtn.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // groupBox3
             // 
@@ -440,14 +446,15 @@ namespace Bus_Ticketing_System_1
             this.searchticketdgv.AllowUserToOrderColumns = true;
             this.searchticketdgv.BackgroundColor = System.Drawing.Color.Azure;
             this.searchticketdgv.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Times New Roman", 12F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.searchticketdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.searchticketdgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.searchticketdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.searchticketdgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.searchticketdgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -467,21 +474,30 @@ namespace Bus_Ticketing_System_1
             this.Column36,
             this.Column37,
             this.Column38});
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.searchticketdgv.DefaultCellStyle = dataGridViewCellStyle16;
             this.searchticketdgv.Location = new System.Drawing.Point(5, 559);
             this.searchticketdgv.Name = "searchticketdgv";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 12F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.searchticketdgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Times New Roman", 12F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.searchticketdgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.searchticketdgv.RowHeadersWidth = 51;
             this.searchticketdgv.RowTemplate.Height = 24;
             this.searchticketdgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.searchticketdgv.Size = new System.Drawing.Size(1897, 414);
             this.searchticketdgv.TabIndex = 1;
+            this.searchticketdgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.searchticketdgv_CellClick);
             // 
             // Column1
             // 
@@ -603,6 +619,7 @@ namespace Bus_Ticketing_System_1
             this.printticketbtn.TabIndex = 1;
             this.printticketbtn.Text = "Print Ticket";
             this.printticketbtn.UseVisualStyleBackColor = false;
+            this.printticketbtn.Click += new System.EventHandler(this.printticketbtn_Click);
             // 
             // groupBox4
             // 
@@ -630,6 +647,7 @@ namespace Bus_Ticketing_System_1
             this.enterticketnotxtbox.Name = "enterticketnotxtbox";
             this.enterticketnotxtbox.Size = new System.Drawing.Size(192, 29);
             this.enterticketnotxtbox.TabIndex = 0;
+            this.enterticketnotxtbox.TextChanged += new System.EventHandler(this.enterticketnotxtbox_TextChanged);
             // 
             // label25
             // 
@@ -767,6 +785,7 @@ namespace Bus_Ticketing_System_1
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(242, 29);
             this.dateTimePicker4.TabIndex = 8;
+            this.dateTimePicker4.Value = new System.DateTime(2021, 4, 30, 15, 36, 0, 0);
             // 
             // dateTimePicker2
             // 
@@ -963,13 +982,14 @@ namespace Bus_Ticketing_System_1
             this.exitbtn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.exitbtn1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitbtn1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.exitbtn1.Location = new System.Drawing.Point(1568, 4);
+            this.exitbtn1.Location = new System.Drawing.Point(1770, 4);
             this.exitbtn1.Margin = new System.Windows.Forms.Padding(2);
             this.exitbtn1.Name = "exitbtn1";
             this.exitbtn1.Size = new System.Drawing.Size(132, 33);
             this.exitbtn1.TabIndex = 0;
             this.exitbtn1.Text = "Log Out";
             this.exitbtn1.UseVisualStyleBackColor = false;
+            this.exitbtn1.Click += new System.EventHandler(this.exitbtn1_Click);
             // 
             // tabPage2
             // 
@@ -1019,13 +1039,14 @@ namespace Bus_Ticketing_System_1
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(1591, 4);
+            this.button1.Location = new System.Drawing.Point(1770, 4);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 33);
             this.button1.TabIndex = 14;
             this.button1.Text = "Log Out";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_3);
             // 
             // busdetailsdgv
             // 
@@ -1033,14 +1054,14 @@ namespace Bus_Ticketing_System_1
             this.busdetailsdgv.BackgroundColor = System.Drawing.Color.Azure;
             this.busdetailsdgv.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.busdetailsdgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.busdetailsdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.busdetailsdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.busdetailsdgv.ColumnHeadersHeight = 60;
             this.busdetailsdgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column16,
@@ -1052,27 +1073,28 @@ namespace Bus_Ticketing_System_1
             this.Column42,
             this.Column43,
             this.Column44});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.busdetailsdgv.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.busdetailsdgv.DefaultCellStyle = dataGridViewCellStyle13;
             this.busdetailsdgv.Location = new System.Drawing.Point(6, 211);
             this.busdetailsdgv.Name = "busdetailsdgv";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.busdetailsdgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.busdetailsdgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.busdetailsdgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.busdetailsdgv.Size = new System.Drawing.Size(1897, 436);
             this.busdetailsdgv.TabIndex = 13;
+            this.busdetailsdgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Busdetailsdgv_CellClick);
             // 
             // Column16
             // 
@@ -1150,6 +1172,7 @@ namespace Bus_Ticketing_System_1
             this.updatebd.TabIndex = 9;
             this.updatebd.Text = "Update Bus Details";
             this.updatebd.UseVisualStyleBackColor = false;
+            this.updatebd.Click += new System.EventHandler(this.updatebd_Click);
             // 
             // deletebd
             // 
@@ -1164,6 +1187,7 @@ namespace Bus_Ticketing_System_1
             this.deletebd.TabIndex = 10;
             this.deletebd.Text = "Delete Bus Details";
             this.deletebd.UseVisualStyleBackColor = false;
+            this.deletebd.Click += new System.EventHandler(this.deletebd_Click);
             // 
             // addbd
             // 
@@ -1178,6 +1202,7 @@ namespace Bus_Ticketing_System_1
             this.addbd.TabIndex = 8;
             this.addbd.Text = "Add Bus Details";
             this.addbd.UseVisualStyleBackColor = false;
+            this.addbd.Click += new System.EventHandler(this.addbd_Click);
             // 
             // groupBox1
             // 
@@ -1223,6 +1248,7 @@ namespace Bus_Ticketing_System_1
             this.deleteroutebtn.TabIndex = 9;
             this.deleteroutebtn.Text = "Delete Route";
             this.deleteroutebtn.UseVisualStyleBackColor = false;
+            this.deleteroutebtn.Click += new System.EventHandler(this.deleteroutebtn_Click);
             // 
             // updateroutebtn
             // 
@@ -1237,6 +1263,7 @@ namespace Bus_Ticketing_System_1
             this.updateroutebtn.TabIndex = 8;
             this.updateroutebtn.Text = "Update Route";
             this.updateroutebtn.UseVisualStyleBackColor = false;
+            this.updateroutebtn.Click += new System.EventHandler(this.updateroutebtn_Click);
             // 
             // addroutebtn
             // 
@@ -1251,6 +1278,7 @@ namespace Bus_Ticketing_System_1
             this.addroutebtn.TabIndex = 7;
             this.addroutebtn.Text = "Add Route";
             this.addroutebtn.UseVisualStyleBackColor = false;
+            this.addroutebtn.Click += new System.EventHandler(this.addroutebtn_Click);
             // 
             // label11
             // 
@@ -1302,14 +1330,14 @@ namespace Bus_Ticketing_System_1
             this.brcdgv.AllowUserToOrderColumns = true;
             this.brcdgv.BackgroundColor = System.Drawing.Color.Azure;
             this.brcdgv.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.brcdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.brcdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.brcdgv.ColumnHeadersHeight = 60;
             this.brcdgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column20,
@@ -1327,6 +1355,7 @@ namespace Bus_Ticketing_System_1
             this.brcdgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.brcdgv.Size = new System.Drawing.Size(1360, 319);
             this.brcdgv.TabIndex = 11;
+            this.brcdgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.brcdgv_CellClick);
             // 
             // Column20
             // 
@@ -1683,6 +1712,8 @@ namespace Bus_Ticketing_System_1
             this.tabPage3.AllowDrop = true;
             this.tabPage3.BackColor = System.Drawing.Color.Aqua;
             this.tabPage3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage3.Controls.Add(this.mailtextBox);
+            this.tabPage3.Controls.Add(this.label43);
             this.tabPage3.Controls.Add(this.button5);
             this.tabPage3.Controls.Add(this.rolecomboBox);
             this.tabPage3.Controls.Add(this.addemployeedgv);
@@ -1715,6 +1746,29 @@ namespace Bus_Ticketing_System_1
             this.tabPage3.Tag = "Employee";
             this.tabPage3.Text = "Employee";
             // 
+            // mailtextBox
+            // 
+            this.mailtextBox.AllowDrop = true;
+            this.mailtextBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.mailtextBox.Location = new System.Drawing.Point(946, 228);
+            this.mailtextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.mailtextBox.Multiline = true;
+            this.mailtextBox.Name = "mailtextBox";
+            this.mailtextBox.Size = new System.Drawing.Size(311, 25);
+            this.mailtextBox.TabIndex = 20;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label43.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(788, 231);
+            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(124, 19);
+            this.label43.TabIndex = 21;
+            this.label43.Text = "E-Mail Address:-";
+            // 
             // button5
             // 
             this.button5.AllowDrop = true;
@@ -1724,13 +1778,14 @@ namespace Bus_Ticketing_System_1
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button5.Location = new System.Drawing.Point(1524, 4);
+            this.button5.Location = new System.Drawing.Point(1770, 4);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(132, 33);
             this.button5.TabIndex = 12;
             this.button5.Text = "Log Out";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
             // rolecomboBox
             // 
@@ -1752,17 +1807,17 @@ namespace Bus_Ticketing_System_1
             // addemployeedgv
             // 
             this.addemployeedgv.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addemployeedgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addemployeedgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.addemployeedgv.BackgroundColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addemployeedgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addemployeedgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.addemployeedgv.ColumnHeadersHeight = 60;
             this.addemployeedgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column8,
@@ -1773,16 +1828,18 @@ namespace Bus_Ticketing_System_1
             this.Column12,
             this.Column13,
             this.Column14,
-            this.Column15});
+            this.Column15,
+            this.Column47});
             this.addemployeedgv.Cursor = System.Windows.Forms.Cursors.Default;
-            this.addemployeedgv.Location = new System.Drawing.Point(119, 280);
+            this.addemployeedgv.Location = new System.Drawing.Point(27, 359);
             this.addemployeedgv.Margin = new System.Windows.Forms.Padding(2);
             this.addemployeedgv.Name = "addemployeedgv";
             this.addemployeedgv.RowHeadersWidth = 51;
             this.addemployeedgv.RowTemplate.Height = 24;
             this.addemployeedgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.addemployeedgv.Size = new System.Drawing.Size(1656, 632);
+            this.addemployeedgv.Size = new System.Drawing.Size(1855, 609);
             this.addemployeedgv.TabIndex = 11;
+            this.addemployeedgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.addemployeedgv_CellClick);
             // 
             // Column8
             // 
@@ -1847,19 +1904,27 @@ namespace Bus_Ticketing_System_1
             this.Column15.Name = "Column15";
             this.Column15.Width = 200;
             // 
+            // Column47
+            // 
+            this.Column47.FillWeight = 200F;
+            this.Column47.HeaderText = "E-Mail Address";
+            this.Column47.Name = "Column47";
+            this.Column47.Width = 200;
+            // 
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button9.Cursor = System.Windows.Forms.Cursors.Default;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(946, 236);
+            this.button9.Location = new System.Drawing.Point(946, 301);
             this.button9.Margin = new System.Windows.Forms.Padding(2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(148, 28);
             this.button9.TabIndex = 10;
             this.button9.Text = "Delete  Employee";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -1867,7 +1932,7 @@ namespace Bus_Ticketing_System_1
             this.button8.Cursor = System.Windows.Forms.Cursors.Default;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(745, 236);
+            this.button8.Location = new System.Drawing.Point(745, 301);
             this.button8.Margin = new System.Windows.Forms.Padding(2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(148, 28);
@@ -1881,13 +1946,14 @@ namespace Bus_Ticketing_System_1
             this.addemployeebtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.addemployeebtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addemployeebtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addemployeebtn.Location = new System.Drawing.Point(543, 236);
+            this.addemployeebtn.Location = new System.Drawing.Point(543, 301);
             this.addemployeebtn.Margin = new System.Windows.Forms.Padding(2);
             this.addemployeebtn.Name = "addemployeebtn";
             this.addemployeebtn.Size = new System.Drawing.Size(148, 28);
             this.addemployeebtn.TabIndex = 8;
             this.addemployeebtn.Text = "Add  Employee";
             this.addemployeebtn.UseVisualStyleBackColor = false;
+            this.addemployeebtn.Click += new System.EventHandler(this.addemployeebtn_Click);
             // 
             // employeeaddresstxtbox
             // 
@@ -2118,27 +2184,28 @@ namespace Bus_Ticketing_System_1
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(1524, 2);
+            this.button3.Location = new System.Drawing.Point(1770, 4);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(132, 33);
             this.button3.TabIndex = 5;
             this.button3.Text = "Log Out";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_2);
             // 
             // addstationdgv
             // 
             this.addstationdgv.AllowUserToOrderColumns = true;
             this.addstationdgv.BackgroundColor = System.Drawing.Color.Azure;
             this.addstationdgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.addstationdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.addstationdgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.addstationdgv.ColumnHeadersHeight = 60;
             this.addstationdgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
@@ -2147,14 +2214,14 @@ namespace Bus_Ticketing_System_1
             this.Column39,
             this.Column7});
             this.addstationdgv.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.addstationdgv.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.addstationdgv.DefaultCellStyle = dataGridViewCellStyle22;
             this.addstationdgv.Location = new System.Drawing.Point(327, 294);
             this.addstationdgv.Margin = new System.Windows.Forms.Padding(2);
             this.addstationdgv.Name = "addstationdgv";
@@ -2163,6 +2230,7 @@ namespace Bus_Ticketing_System_1
             this.addstationdgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.addstationdgv.Size = new System.Drawing.Size(1204, 545);
             this.addstationdgv.TabIndex = 7;
+            this.addstationdgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.addstationdgv_CellClick);
             // 
             // Column4
             // 
@@ -2210,6 +2278,7 @@ namespace Bus_Ticketing_System_1
             this.button7.TabIndex = 6;
             this.button7.Text = "Delete Station";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -2224,6 +2293,7 @@ namespace Bus_Ticketing_System_1
             this.button6.TabIndex = 5;
             this.button6.Text = "Update Station";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // addstationbtn
             // 
@@ -2318,7 +2388,7 @@ namespace Bus_Ticketing_System_1
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bus Ticketing System";
@@ -2466,15 +2536,6 @@ namespace Bus_Ticketing_System_1
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ComboBox rolecomboBox;
         private System.Windows.Forms.DataGridView addemployeedgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column40;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button addemployeebtn;
@@ -2512,5 +2573,17 @@ namespace Bus_Ticketing_System_1
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox mailtextBox;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column40;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column47;
     }
 }

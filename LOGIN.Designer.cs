@@ -41,8 +41,10 @@ namespace Bus_Ticketing_System_1
             this.signupbtn = new System.Windows.Forms.Button();
             this.comboBoxUserName = new System.Windows.Forms.ComboBox();
             this.employeeTBBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.passwordtxtbox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTBBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -126,6 +128,7 @@ namespace Bus_Ticketing_System_1
             this.forgotpasswordbtn.TabIndex = 17;
             this.forgotpasswordbtn.Text = "Forgot Password?";
             this.forgotpasswordbtn.UseVisualStyleBackColor = false;
+            this.forgotpasswordbtn.Click += new System.EventHandler(this.forgotpasswordbtn_Click);
             // 
             // signupbtn
             // 
@@ -138,6 +141,7 @@ namespace Bus_Ticketing_System_1
             this.signupbtn.TabIndex = 16;
             this.signupbtn.Text = "SignUp";
             this.signupbtn.UseVisualStyleBackColor = false;
+            this.signupbtn.Click += new System.EventHandler(this.signupbtn_Click);
             // 
             // comboBoxUserName
             // 
@@ -157,14 +161,6 @@ namespace Bus_Ticketing_System_1
             // 
             this.employeeTBBindingSource.DataMember = "EmployeeTB";
             // 
-            // passwordtxtbox
-            // 
-            this.passwordtxtbox.Location = new System.Drawing.Point(436, 456);
-            this.passwordtxtbox.Margin = new System.Windows.Forms.Padding(2);
-            this.passwordtxtbox.Name = "passwordtxtbox";
-            this.passwordtxtbox.Size = new System.Drawing.Size(288, 26);
-            this.passwordtxtbox.TabIndex = 18;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -175,14 +171,50 @@ namespace Bus_Ticketing_System_1
             this.label4.TabIndex = 19;
             this.label4.Text = "Bus Ticketing  System";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.Window;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Location = new System.Drawing.Point(687, 459);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(36, 26);
+            this.button2.TabIndex = 22;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Window;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(687, 459);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 26);
+            this.button1.TabIndex = 21;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(436, 459);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '*';
+            this.textBox1.Size = new System.Drawing.Size(288, 26);
+            this.textBox1.TabIndex = 20;
+            // 
             // LOG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(959, 600);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.passwordtxtbox);
             this.Controls.Add(this.comboBoxRole);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -217,8 +249,10 @@ namespace Bus_Ticketing_System_1
         private System.Windows.Forms.Button forgotpasswordbtn;
         private System.Windows.Forms.Button signupbtn;
         private System.Windows.Forms.ComboBox comboBoxUserName;
-        private System.Windows.Forms.TextBox passwordtxtbox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

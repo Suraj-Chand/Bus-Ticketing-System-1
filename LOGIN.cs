@@ -28,5 +28,36 @@ namespace Bus_Ticketing_System_1
 
             ss.Show();
         }
+
+          
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (textBox1.PasswordChar == Convert.ToChar("*"))
+            {
+                button1.BringToFront();
+                textBox1.PasswordChar = Convert.ToChar("\0");
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (textBox1.PasswordChar == Convert.ToChar("\0"))
+            {
+                button2.BringToFront();
+                textBox1.PasswordChar = Convert.ToChar("*");
+            }
+        }
+
+        private void forgotpasswordbtn_Click(object sender, EventArgs e)
+        {
+            Forgot_Password fp = new Forgot_Password();
+            fp.Show();
+        }
+
+        private void signupbtn_Click(object sender, EventArgs e)
+        {
+            SIgnUp su = new SIgnUp();
+            su.Show();
+        }
     }
 }
