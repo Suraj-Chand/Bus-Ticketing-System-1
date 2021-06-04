@@ -29,6 +29,8 @@ namespace Bus_Ticketing_System_1
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Forgot_Password));
             this.verifybtn = new System.Windows.Forms.Button();
             this.exitbtn = new System.Windows.Forms.Button();
             this.mail = new System.Windows.Forms.TextBox();
@@ -36,6 +38,10 @@ namespace Bus_Ticketing_System_1
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.showpass = new System.Windows.Forms.Button();
+            this.errorProvideremployeename = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvideremail = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvideremployeename)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvideremail)).BeginInit();
             this.SuspendLayout();
             // 
             // verifybtn
@@ -47,7 +53,7 @@ namespace Bus_Ticketing_System_1
             this.verifybtn.Location = new System.Drawing.Point(258, 205);
             this.verifybtn.Name = "verifybtn";
             this.verifybtn.Size = new System.Drawing.Size(159, 38);
-            this.verifybtn.TabIndex = 21;
+            this.verifybtn.TabIndex = 3;
             this.verifybtn.Text = "Change Password";
             this.verifybtn.UseVisualStyleBackColor = false;
             this.verifybtn.Click += new System.EventHandler(this.verifybtn_Click);
@@ -63,26 +69,31 @@ namespace Bus_Ticketing_System_1
             this.exitbtn.Location = new System.Drawing.Point(433, 205);
             this.exitbtn.Name = "exitbtn";
             this.exitbtn.Size = new System.Drawing.Size(126, 38);
-            this.exitbtn.TabIndex = 20;
+            this.exitbtn.TabIndex = 4;
             this.exitbtn.Text = "Exit";
             this.exitbtn.UseVisualStyleBackColor = false;
             this.exitbtn.Click += new System.EventHandler(this.exitbtn_Click);
             // 
             // mail
             // 
+            this.errorProvideremail.SetError(this.mail, "Please Enter Email Address.");
             this.mail.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mail.Location = new System.Drawing.Point(250, 125);
             this.mail.Name = "mail";
             this.mail.Size = new System.Drawing.Size(309, 25);
-            this.mail.TabIndex = 19;
+            this.mail.TabIndex = 1;
+            this.mail.TextChanged += new System.EventHandler(this.mail_TextChanged);
             // 
             // txtUserName
             // 
+            this.txtUserName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.errorProvideremployeename.SetError(this.txtUserName, "Please Enter Employee Name");
             this.txtUserName.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserName.Location = new System.Drawing.Point(250, 61);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(309, 25);
-            this.txtUserName.TabIndex = 17;
+            this.txtUserName.TabIndex = 0;
+            this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
             // label2
             // 
@@ -100,9 +111,9 @@ namespace Bus_Ticketing_System_1
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(85, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 19);
+            this.label1.Size = new System.Drawing.Size(170, 19);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Enter User Name:-";
+            this.label1.Text = "Enter Employee Name:-";
             // 
             // showpass
             // 
@@ -113,10 +124,23 @@ namespace Bus_Ticketing_System_1
             this.showpass.Location = new System.Drawing.Point(89, 205);
             this.showpass.Name = "showpass";
             this.showpass.Size = new System.Drawing.Size(153, 38);
-            this.showpass.TabIndex = 21;
+            this.showpass.TabIndex = 2;
             this.showpass.Text = "Show Password";
             this.showpass.UseVisualStyleBackColor = false;
             this.showpass.Click += new System.EventHandler(this.showpass_Click);
+            // 
+            // errorProvideremployeename
+            // 
+            this.errorProvideremployeename.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvideremployeename.ContainerControl = this;
+            this.errorProvideremployeename.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvideremployeename.Icon")));
+            this.errorProvideremployeename.Tag = "";
+            // 
+            // errorProvideremail
+            // 
+            this.errorProvideremail.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvideremail.ContainerControl = this;
+            this.errorProvideremail.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvideremail.Icon")));
             // 
             // Forgot_Password
             // 
@@ -136,6 +160,9 @@ namespace Bus_Ticketing_System_1
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forgot_Password";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Forgot_Password_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Forgot_Password_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvideremployeename)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvideremail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +177,7 @@ namespace Bus_Ticketing_System_1
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button showpass;
+        private System.Windows.Forms.ErrorProvider errorProvideremployeename;
+        private System.Windows.Forms.ErrorProvider errorProvideremail;
     }
 }

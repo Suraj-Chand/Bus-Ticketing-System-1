@@ -17,8 +17,8 @@ namespace Bus_Ticketing_System_1
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTS1;Integrated Security=True");
 
         SqlCommand cmd = new SqlCommand();
-       // private object busouteTableAdapter;
-       // private object bTMS1DataSet9;
+        // private object busouteTableAdapter;
+        // private object bTMS1DataSet9;
 
         public main()
         {
@@ -38,6 +38,8 @@ namespace Bus_Ticketing_System_1
             ds();
             address();
             ss();
+            sa();
+            
         }
 
         public void tic()
@@ -68,6 +70,37 @@ namespace Bus_Ticketing_System_1
 
         }
 
+       
+
+
+        public void sa()
+        {
+            try
+            {
+                con.Open();
+                SqlCommand ccm = new SqlCommand("select stationaddress from stations", con);
+
+                SqlDataReader dd = ccm.ExecuteReader();
+
+                stationaddresstxtbox.Items.Clear();
+                while (dd.Read())
+                {
+
+                    stationaddresstxtbox.Items.Add(dd.GetValue(0).ToString());
+
+
+                }
+                dd.Close();
+                con.Close();
+            }
+            catch (IOException)
+            {
+                stationaddresstxtbox.Items.Clear();
+
+            }
+
+        }
+
         public void ss()
         {
             try
@@ -82,9 +115,7 @@ namespace Bus_Ticketing_System_1
                 {
 
                     sourcestationcomboBox.Items.Add(dd.GetValue(0).ToString());
-                    stationaddresstxtbox.Items.Add(dd.GetValue(0).ToString());
-                    passengeraddresstxtbox.Items.Add(dd.GetValue(0).ToString());
-
+                  
                 }
                 dd.Close();
                 con.Close();
@@ -111,9 +142,9 @@ namespace Bus_Ticketing_System_1
                 passengeraddresstxtbox.Items.Clear();
                 while (dd.Read())
                 {
-                    sourcestationcomboBox.Items.Add(dd.GetValue(0).ToString());
+                   
                     passengeraddresstxtbox.Items.Add(dd.GetValue(0).ToString());
-                    stationaddresstxtbox.Items.Add(dd.GetValue(0).ToString());
+                  
 
 
                 }
@@ -142,10 +173,7 @@ namespace Bus_Ticketing_System_1
                 {
 
                     destinationstationcombobox.Items.Add(dd.GetValue(0).ToString());
-                    stationaddresstxtbox.Items.Add(dd.GetValue(0).ToString());
-                    passengeraddresstxtbox.Items.Add(dd.GetValue(0).ToString());
-
-
+                   
                 }
                 dd.Close();
                 con.Close();
@@ -394,9 +422,9 @@ namespace Bus_Ticketing_System_1
         {
             if (con.State == ConnectionState.Closed)
                 con.Open();
-            SqlCommand cmd = new SqlCommand("select * from EmployeeTB", con);
+            SqlCommand cmd = new SqlCommand("select * from EmployeeTBother", con);
             int i = 0;
-            cmd = new SqlCommand("select * from EmployeeTB", con);
+            cmd = new SqlCommand("select * from EmployeeTBother", con);
 
             DataTable dt = new DataTable();
             SqlDataReader dr = cmd.ExecuteReader();
@@ -478,7 +506,24 @@ namespace Bus_Ticketing_System_1
             while (dr.Read())
             {
                 i = i + 1;
-                searchticketdgv.Rows.Add(i.ToString(), dr["ticketno"].ToString(), dr["busno"].ToString(), dr["sourcestation"].ToString(), dr["destinationstation"].ToString(), dr["chooseroute"].ToString(), dr["distancefromsource"].ToString(), dr["totalfarecost"].ToString(), dr["issueddate"].ToString(), dr["departuredate"].ToString(), dr["departuretime"].ToString(), dr["arrivaltime"].ToString(), dr["name"].ToString(), dr["age"].ToString(), dr["gender"].ToString(), dr["address"].ToString(), dr["phoneno"].ToString());
+                searchticketdgv.Rows.Add(i.ToString(),
+                    dr["ticketno"].ToString(),
+                    dr["busno"].ToString(), 
+                    dr["sourcestation"].ToString(),
+                    dr["destinationstation"].ToString(),
+                    dr["distancefromsource"].ToString(),
+                    dr["chooseroute"].ToString(),
+                    dr["noofpassengers"].ToString(),
+                    dr["issueddate"].ToString(),
+                    dr["departuredate"].ToString(),
+                    dr["departuretime"].ToString(), 
+                    dr["arrivaltime"].ToString(),
+                    dr["totalfarecost"].ToString(),
+                    dr["name"].ToString(),
+                    dr["age"].ToString(), 
+                    dr["gender"].ToString(), 
+                    dr["address"].ToString(),
+                    dr["phoneno"].ToString());
             }
             dr.Close();
             con.Close();
@@ -542,14 +587,22 @@ namespace Bus_Ticketing_System_1
         private void main_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'bTMS1DataSet9.busoute' table. You can move, or remove it, as needed.
-           // this.busouteTableAdapter.Fill(this.bTMS1DataSet9.busoute);
+            // this.busouteTableAdapter.Fill(this.bTMS1DataSet9.busoute);
 
         }
 
 
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
 
 
-       
+        private void searchticketbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private bool IsValid()
         {
             if (passengernametxtbox.Text == string.Empty)
@@ -667,12 +720,17 @@ namespace Bus_Ticketing_System_1
 
         private void addemployeebtn_Click(object sender, EventArgs e)
         {
-
-
             try
             {
+                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTS1;Integrated Security=True");
 
-                SqlDataAdapter adap = new SqlDataAdapter("select * from EmployeeTB where employeeid='" + employeeidtxtbox.Text + "'", con);
+                SqlDataAdapter adap = new SqlDataAdapter("select * from EmployeeTBother where employeeid='" + employeeidtxtbox.Text + "'", con);
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                con.Open();
+
                 DataTable dt = new DataTable();
                 adap.Fill(dt);
                 if (dt.Rows.Count > 0)
@@ -683,39 +741,41 @@ namespace Bus_Ticketing_System_1
                 else
                 {
 
-                    con.Open();
+
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "insert into EmployeeTB values('" + employeeidtxtbox.Text + "','" + employeenametxtbox.Text + "','" + rolecomboBox.Text + "',  '" + employeeaddresstxtbox.Text + "','" + employeephonenotxtbox.Text + "',  '" + employeefatherstxtbox.Text + "',  '" + employeemothersnametxtbox.Text + "',  '" + cno.Text + "',  '" + mailtextBox.Text + "')";
+                    cmd.CommandText = "insert into EmployeeTBother values('" + employeeidtxtbox.Text + "','" + employeenametxtbox.Text + "','" + rolecomboBox.Text + "',  '" + employeeaddresstxtbox.Text + "','" + employeephonenotxtbox.Text + "',  '" + employeefatherstxtbox.Text + "',  '" + employeemothersnametxtbox.Text + "',  '" + cno.Text + "',  '" + mailtextBox.Text + "')";
                     cmd.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record Inserted Sucessfully");
-                    displayemployee();
+                    refreshemployee();
 
-                   
+
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
-                 MessageBox.Show("Error in Inserting data" + ex);
+                MessageBox.Show("Error in Inserting data" + ex);
             }
+
+           
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            
+           
             con.Open();
 
             cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "update EmployeeTB set employeeid='" + employeeidtxtbox.Text + "',employeename='" + employeenametxtbox.Text + "',role='" + rolecomboBox.Text + "', employeeaddress='" + employeeaddresstxtbox.Text + "',employeephoneno='" + employeephonenotxtbox.Text + "',fathersname='" + employeefatherstxtbox.Text + "', mothersname='" + employeemothersnametxtbox.Text + "',citizenshipno='" + cno.Text + "',email='" + mailtextBox.Text + "' where employeeid='" + employeeidtxtbox.Text + "'";
+            cmd.CommandText = "update EmployeeTBother set employeeid='" + employeeidtxtbox.Text + "',employeename='" + employeenametxtbox.Text + "',role='" + rolecomboBox.Text + "', employeeaddress='" + employeeaddresstxtbox.Text + "',employeephoneno='" + employeephonenotxtbox.Text + "',fathersname='" + employeefatherstxtbox.Text + "', mothersname='" + employeemothersnametxtbox.Text + "',citizenshipno='" + cno.Text + "',email='" + mailtextBox.Text + "' where employeeid='" + employeeidtxtbox.Text + "'";
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Record updated Sucessfully");
             displayemployee();
-           
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -724,12 +784,11 @@ namespace Bus_Ticketing_System_1
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "delete from EmployeeTB where employeeid='" + employeeidtxtbox.Text + "'";
+            cmd.CommandText = "delete from EmployeeTBother where employeeid='" + employeeidtxtbox.Text + "'";
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Record deleted Sucessfully");
             displayemployee();
-           
         }
 
 
@@ -746,7 +805,6 @@ namespace Bus_Ticketing_System_1
             employeefatherstxtbox.Text = "";
             employeemothersnametxtbox.Text = "";
             cno.Text = "";
-            mailtextBox.Text = "";
         }
 
         private void addemployeedgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -770,6 +828,8 @@ namespace Bus_Ticketing_System_1
                     employeemothersnametxtbox.Text = addemployeedgv.Rows[e.RowIndex].Cells[7].Value.ToString();
                     cno.Text = addemployeedgv.Rows[e.RowIndex].Cells[8].Value.ToString();
                     mailtextBox.Text = addemployeedgv.Rows[e.RowIndex].Cells[9].Value.ToString();
+
+                   
                 }
 
             }
@@ -789,11 +849,12 @@ namespace Bus_Ticketing_System_1
             destinationstationcombobox.Text = "";
             distancefromsourcetextBox.Text = "";
             crcomboBox.Text = "";
-            totalfarecosttxtbox.Text = "";
+            noptextBox.Text = "";
             dateTimePicker1.Text = "";
             dateTimePicker2.Text = "";
             dateTimePicker4.Text = "";
             dateTimePicker3.Text = "";
+            totalfarecosttxtbox.Text = "";
             passengernametxtbox.Text = "";
             passengeragetxtbox.Text = "";
             passengergendercomboBox.Text = "";
@@ -824,7 +885,24 @@ namespace Bus_Ticketing_System_1
                     con.Open();
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "insert into ticketcreator values('" + ticketnotxtbox.Text + "','" + busnocomboBox.Text + "','" + sourcestationcomboBox.Text + "','" + destinationstationcombobox.Text + "','" + distancefromsourcetextBox.Text + "','" + crcomboBox.Text + "','" + totalfarecosttxtbox.Text + "','" + dateTimePicker1.Text + "','" + dateTimePicker2.Text + "','" + dateTimePicker4.Text + "','" + dateTimePicker3.Text + "','" + passengernametxtbox.Text + "','" + passengeragetxtbox.Text + "','" + passengergendercomboBox.Text + "','" + passengeraddresstxtbox.Text + "','" + passengerphonenumber.Text + "')";
+                    cmd.CommandText = "insert into ticketcreator values" +
+                        "('" + ticketnotxtbox.Text + "'," +
+                        "'" + busnocomboBox.Text + "'," +
+                        "'" + sourcestationcomboBox.Text + "'," +
+                        "'" + destinationstationcombobox.Text + "'," +
+                        "'" + distancefromsourcetextBox.Text + "'," +
+                        "'" + crcomboBox.Text + "'," +
+                        "'" + noptextBox.Text + "'," +
+                        "'" + dateTimePicker1.Text + "'," +
+                        "'" + dateTimePicker2.Text + "'," +
+                        "'" + dateTimePicker4.Text + "'," +
+                        "'" + dateTimePicker3.Text + "'," +
+                        "'" + totalfarecosttxtbox.Text + "'," +
+                        "'" + passengernametxtbox.Text + "'," +
+                        "'" + passengeragetxtbox.Text + "'," +
+                        "'" + passengergendercomboBox.Text + "'," +
+                        "'" + passengeraddresstxtbox.Text + "'," +
+                        "'" + passengerphonenumber.Text + "')";
                     cmd.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record Inserted Sucessfully");
@@ -860,16 +938,17 @@ namespace Bus_Ticketing_System_1
                     destinationstationcombobox.Text = searchticketdgv.Rows[e.RowIndex].Cells[4].Value.ToString();
                     distancefromsourcetextBox.Text = searchticketdgv.Rows[e.RowIndex].Cells[5].Value.ToString();
                     crcomboBox.Text = searchticketdgv.Rows[e.RowIndex].Cells[6].Value.ToString();
-                    totalfarecosttxtbox.Text = searchticketdgv.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    noptextBox.Text = searchticketdgv.Rows[e.RowIndex].Cells[7].Value.ToString();
                     dateTimePicker1.Text = searchticketdgv.Rows[e.RowIndex].Cells[8].Value.ToString();
                     dateTimePicker2.Text = searchticketdgv.Rows[e.RowIndex].Cells[9].Value.ToString();
                     dateTimePicker4.Text = searchticketdgv.Rows[e.RowIndex].Cells[10].Value.ToString();
                     dateTimePicker3.Text = searchticketdgv.Rows[e.RowIndex].Cells[11].Value.ToString();
-                    passengernametxtbox.Text = searchticketdgv.Rows[e.RowIndex].Cells[12].Value.ToString();
-                    passengeragetxtbox.Text = searchticketdgv.Rows[e.RowIndex].Cells[13].Value.ToString();
-                    passengergendercomboBox.Text = searchticketdgv.Rows[e.RowIndex].Cells[14].Value.ToString();
-                    passengeraddresstxtbox.Text = searchticketdgv.Rows[e.RowIndex].Cells[15].Value.ToString();
-                    passengerphonenumber.Text = searchticketdgv.Rows[e.RowIndex].Cells[16].Value.ToString();
+                    totalfarecosttxtbox.Text = searchticketdgv.Rows[e.RowIndex].Cells[12].Value.ToString();
+                    passengernametxtbox.Text = searchticketdgv.Rows[e.RowIndex].Cells[13].Value.ToString();
+                    passengeragetxtbox.Text = searchticketdgv.Rows[e.RowIndex].Cells[14].Value.ToString();
+                    passengergendercomboBox.Text = searchticketdgv.Rows[e.RowIndex].Cells[15].Value.ToString();
+                    passengeraddresstxtbox.Text = searchticketdgv.Rows[e.RowIndex].Cells[16].Value.ToString();
+                    passengerphonenumber.Text = searchticketdgv.Rows[e.RowIndex].Cells[17].Value.ToString();
                 }
 
             }
@@ -1057,7 +1136,7 @@ namespace Bus_Ticketing_System_1
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = " delete from busoute where routeid='" + enterrouteidtxtbox.Text + "'";
-            cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery(); 
             con.Close();
             MessageBox.Show("Record deleted Sucessfully");
             displayroutecreator();
@@ -1110,7 +1189,7 @@ namespace Bus_Ticketing_System_1
 
         private void tabControl1_Click(object sender, EventArgs e)
         {
-
+            InitializeComponent();
             displaystation();
             displayemployee();
             displaybusdetails();
@@ -1126,6 +1205,8 @@ namespace Bus_Ticketing_System_1
             ds();
             address();
             ss();
+            sa();
+            
         }
 
         private void enterticketnotxtbox_TextChanged(object sender, EventArgs e)
@@ -1174,24 +1255,28 @@ namespace Bus_Ticketing_System_1
 
         private void passengeraddresstxtbox_TextChanged(object sender, EventArgs e)
         {
+            
+            sa();
             address();
             ss();
             ds();
         }
         private void stationaddresstxtbox_TextChanged(object sender, EventArgs e)
         {
+            sa();
             address();
             ss();
             ds();
+
         }
         private void drivercomboBox_TextChanged(object sender, EventArgs e)
         {
-            emp();
+            
             combb();
         }
         private void conductorcomboBox_TextChanged(object sender, EventArgs e)
         {
-            emp();
+            
             combbb();
         }
 
@@ -1221,26 +1306,11 @@ namespace Bus_Ticketing_System_1
             displayticket();
         }
 
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            this.Hide();
-            LOG mw = new LOG();
-            mw.Show();
-        }
+       
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            LOG mw = new LOG();
-            mw.Show();
-        }
+       
 
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            LOG mw = new LOG();
-            mw.Show();
-        }
+      
 
         private void crcomboBox_Click(object sender, EventArgs e)
         {
@@ -1251,47 +1321,44 @@ namespace Bus_Ticketing_System_1
 
         private void exitbtn1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             LOG log = new LOG();
             log.Show();
-            con.Close();
         }
 
         private void button1_Click_3(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             LOG log = new LOG();
             log.Show();
-            con.Close();
         }
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             LOG log = new LOG();
             log.Show();
-            con.Close();
         }
 
         private void button3_Click_2(object sender, EventArgs e)
         {
+            this.Close();
+            LOG log = new LOG();
+            log.Show();
+        }
+
+        private void addemployeedgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //this.Select(Focus.addemployeedgv.Rows());
+            this.Select();
+            this.Focus();
+        }
+
+        private void main_FormClosed(object sender, FormClosedEventArgs e)
+        {
             this.Hide();
             LOG log = new LOG();
             log.Show();
-            con.Close();
         }
-
-        private void main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (e.Cancel==true)
-            {
-                this.Hide();
-                LOG log = new LOG();
-                log.Show();
-                con.Close();
-            }
-
-        }
-
     }
 }

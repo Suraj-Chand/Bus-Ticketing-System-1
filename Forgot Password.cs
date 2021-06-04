@@ -18,12 +18,7 @@ namespace Bus_Ticketing_System_1
         {
             InitializeComponent();
         }
-
-        SqlCommand cmd;
-        SqlConnection cn = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTS1;Integrated Security=True");
-        string str;
-       
-
+      
         void clear()
         {
             txtUserName.Text = "";
@@ -41,241 +36,56 @@ namespace Bus_Ticketing_System_1
             SqlCommand cmd = new SqlCommand("SELECT employeename,email From EmployeeTB WHERE employeename ='" + txtUserName.Text + "' and email ='" + mail.Text + "'", con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             SqlDataReader dr = cmd.ExecuteReader();
-            //DataTable dt = new DataTable();
-            // sda.Fill(dt);
 
-            if (txtUserName.Text!="" && mail.Text!="")
+            if (txtUserName.Text == "" && mail.Text == "")
             {
-
-                if (dr.Read())
-                {
-                    this.Dispose(false);
-                    clear();
-                    ChangePassword cp = new ChangePassword();
-
-                    cp.Show();
-
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect username or email.");
-                }
+                MessageBox.Show("Enter Employee Name and Email Address first.");
             }
             else
             {
-                MessageBox.Show("Enter Missing fields.");
+                if (txtUserName.Text != "")
+                {
+                    if (mail.Text != "")
+                    {
+                        if (txtUserName.Text != "" && mail.Text != "")
+                        {
+                            if (dr.Read())
+                            {
+                                clear();
+                                errorProvideremployeename.Icon = Properties.Resources.close;
+                                errorProvideremail.Icon = Properties.Resources.close;
+
+                                this.Hide();
+                                ChangePassword cp = new ChangePassword();
+
+                                cp.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Enter Correct Employee Name and Email Address.");
+                                clearshow();
+                                errorProvideremployeename.Icon = Properties.Resources.close;
+                                errorProvideremail.Icon = Properties.Resources.close;
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Enter Employee Name and Email Address first.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Enter Email Address first.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Enter Employee Name first.");
+                }
             }
-
-
-            //if (dt.Rows.Count > 0)
-            //{
-
-
-
-            //    for (int i = 0; i < dt.Rows.Count; i++)
-            //    {
-
-            //                this.Hide();
-            //                main ss = new main();
-            //                clear();
-            //                ss.Show();
-            //                clear();
-
-
-
-            //    }
-            //}
-
-
+            
         }
-        //    try
-        //    {
-        //        str = "SELECT * From EmployeeTB WHERE employeename ='"+ txtUserName .Text+ "', employeephoneno ='"+ numph.Text+ "',citizenshipno ='"+ ctznno.Text+ "'";
-        //        cmd = new SqlCommand(str, cn);
-        //        cn.Open();
-        //        SqlDataReader dr = cmd.ExecuteReader();
-        //        if (dr.Read()) ;
-        //        {
-        //            if (dr["role"].ToString() == "Administrator") 
-        //            {
-        //                dr.Close();
-        //                string v_update = "UPDATE EmployeeTB WHERE employeename ='" + txtUserName.Text + "'";
-        //                SqlCommand cmd1 = new SqlCommand(v_update, cn);
-        //                int i = cmd1.ExecuteNonQuery();
-        //                if (i > 1)
-        //                {
-        //                    ChangePassword cpp = new ChangePassword();
-        //                    this.Dispose(false);
-        //                    cpp.Show();
-        //                }
-        //                else
-        //                {
-        //                    MessageBox.Show(message, "No Datas.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //                }
-        //            }
-
-        //            else
-        //            {
-        //                MessageBox.Show(message, "You are not an Administrator.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //                clear();
-
-        //            }
-
-
-
-        //        }
-        //        //else
-        //        //{
-        //        //    MessageBox.Show(message, "You are not an Administrator.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        //    dr.Close();
-        //        //    cn.Close();
-        //        //}
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        clear();
-        //        MessageBox.Show("Error");
-        //    }
-
-
-
-        //}
-
-
-
-
-
-
-
-
-        //string employeename = txtUserName.Text;
-        //string employeephoneno = numph.Text;
-        //string citizenshipno = ctznno.Text;
-
-        //if (employeename != "" && employeephoneno != "" && citizenshipno != "")
-        //{
-        //    SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTS1;Integrated Security=True");
-        //    DB db = new DB();
-        //    //con.Open();
-
-        //    SqlCommand cmd = new SqlCommand("select * from EmployeeTB where employeename='" + txtUserName.Text + "' and employeephoneno='" + numph.Text + "', citizenshipno='" + ctznno + "'",con);
-        //    SqlDataAdapter sda = new SqlDataAdapter(cmd);
-        //    DataTable dt = new DataTable();
-        //    sda.Fill(dt);
-
-        //    this.Hide();
-        //    ChangePassword cp = new ChangePassword();
-        //    clear();
-        //    cp.Show();
-        //    clear();
-
-
-        //}
-        //else
-        //{
-        //    MessageBox.Show("fill the empty fields first.");
-        //}
-
-
-
-
-
-
-        //if (dt.Rows.Count > 0)
-        //{
-
-        //    string cmbItemVAlue = txtUserName.ToString();
-
-        //    for (int i = 0; i < dt.Rows.Count; i++)
-        //    {
-        //        if (dt.Rows[i]["role"].ToString() == cmbItemVAlue)
-        //        {
-        //            MessageBox.Show("You are LoggedIn as " + dt.Rows[i][2]);
-        //            {
-        //                this.Hide();
-        //                ChangePassword cp = new ChangePassword();
-        //                clear();
-        //                cp.Show();
-        //                clear();
-        //            }
-
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Enter the Proper Fields.");
-        //            clear();
-        //        }
-        //    }
-        //}
-        //else
-        //{
-        //    MessageBox.Show("fields empty.");
-        //}
-
-
-
-
-
-
-        //    SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTS1;Integrated Security=True");
-
-        //    con.Open();
-
-
-        //    SqlCommand cmd = new SqlCommand("select * from EmployeeTB where employeename='" + txtUserName.Text + "' " +
-        //        ", employeephoneno='" + numph.Text + "' and citizenshipno='" + ctznno.Text + "' ", con);
-
-        //    SqlDataAdapter sda = new SqlDataAdapter(cmd);
-        //    DataTable dt = new DataTable();
-        //    sda.Fill(dt);
-
-
-
-
-
-
-        //    if (dt.Rows.Count > 0)
-        //    {
-
-        //        string cmbempVAlue = txtUserName.Text;
-        //    string cmbphVAlue = numph.Text;
-        //    string cmbctznVAlue = ctznno.Text;
-
-        //    for (int i = 0; i < dt.Rows.Count; i++)
-        //    {
-        //        if (dt.Rows[i]["employeename"].ToString() == cmbempVAlue &&
-        //            dt.Rows[i]["employeephoneno"].ToString() == cmbphVAlue &&
-        //            dt.Rows[i]["citizenshipno"].ToString() == cmbctznVAlue)
-        //        {
-        //            // MessageBox.Show("You are LoggedIn as " + dt.Rows[i][2]);
-        //            MessageBox.Show("you can now change password.");
-
-        //            this.Hide();
-        //            ChangePassword CP = new ChangePassword();
-        //            CP.Show();
-
-
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Enter the Proper Fields.");
-        //        }
-        //    }
-        //}
-        //else
-        // {
-        //        MessageBox.Show(" Fields Empty.");
-        // }
-
-        //this.Hide();
-        //ChangePassword CP = new ChangePassword();
-        //CP.Show();
-
-
-
-
-
-        // }
 
         private void exitbtn_Click(object sender, EventArgs e)
         {
@@ -295,23 +105,110 @@ namespace Bus_Ticketing_System_1
             }
         }
 
-        
+        void clearshow()
+        {
+            txtUserName.Text = "";
+            mail.Text = "";
+        }
 
         private void showpass_Click(object sender, EventArgs e)
         {
+
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTS1;Integrated Security=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select * from EmployeeTB where employeename='" + txtUserName.Text + "',employeephoneno='" + mail.Text + "'", con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.Read())
+
+            if (con.State == System.Data.ConnectionState.Open)
             {
-                MessageBox.Show(dr.GetValue(1).ToString());
+                con.Close();
+            }
+            
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select [pass] from EmployeeTB where employeename='" + txtUserName.Text + "'and email='" + mail.Text + "'", con);
+            SqlDataReader dr = cmd.ExecuteReader();
+           
+            if(txtUserName.Text == "" && mail.Text == "")
+            {
+                MessageBox.Show("Enter Employee Name and Email Address first.");
             }
             else
             {
-                MessageBox.Show("not match");
+                if (txtUserName.Text != "")
+                {
+                    if (mail.Text != "")
+                    {
+                        if (txtUserName.Text != "" && mail.Text != "")
+                        {
+                            if(dr.Read())
+                            {
+                                clearshow();
+                                errorProvideremployeename.Icon = Properties.Resources.close;
+                                errorProvideremail.Icon = Properties.Resources.close;
+                                MessageBox.Show("Your Password is:- " + dr.GetValue(0).ToString());
+                            }
+                            else
+                            {
+                                MessageBox.Show("Enter Correct Employee Name and Email Address.");
+                                clearshow();
+                                    errorProvideremployeename.Icon = Properties.Resources.close;
+                                    errorProvideremail.Icon = Properties.Resources.close;
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Enter Employee Name and Email Address first.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Enter Email Address first.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Enter Employee Name first.");
+                }
+              
             }
+           
+            
             con.Close();
         }
+
+       
+
+        private void txtUserName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUserName.Text == "" || string.IsNullOrEmpty(txtUserName.Text) || string.IsNullOrWhiteSpace(txtUserName.Text))
+            {
+                errorProvideremployeename.Icon = Properties.Resources.close;
+            }
+            else
+            {
+                errorProvideremployeename.Icon = Properties.Resources.ok;
+            }
+        }
+
+       
+        private void mail_TextChanged(object sender, EventArgs e)
+        {
+            if (mail.Text == "" || string.IsNullOrEmpty(mail.Text) || string.IsNullOrWhiteSpace(mail.Text))
+            {
+                errorProvideremail.Icon = Properties.Resources.close;
+            }
+            else
+            {
+                errorProvideremail.Icon = Properties.Resources.ok;
+            }
+        }
+
+        private void Forgot_Password_FormClosed(object sender, FormClosedEventArgs e)
+        {
+                this.Dispose();
+                LOG log = new LOG();
+                log.Show();
+            
+        }
+
+       
     }
 }

@@ -23,98 +23,29 @@ namespace Bus_Ticketing_System_1
         }
 
 
-      /*  public void displayemployee()
-        {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTMS1;Integrated Security=True");
+        /*  public void displayemployee()
+          {
+              SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTMS1;Integrated Security=True");
 
-            if (con.State == ConnectionState.Closed)
-                con.Open();
-            SqlCommand cmd = new SqlCommand("select * from EmployeeTB", con);
-            int i = 0;
-            cmd = new SqlCommand("select * from EmployeeTB", con);
+              if (con.State == ConnectionState.Closed)
+                  con.Open();
+              SqlCommand cmd = new SqlCommand("select * from EmployeeTB", con);
+              int i = 0;
+              cmd = new SqlCommand("select * from EmployeeTB", con);
 
-            DataTable dt = new DataTable();
-            SqlDataReader dr = cmd.ExecuteReader();
-           // addemployeedgv.Rows.Clear();
-            while (dr.Read())
-            {
-                i = i + 1;
-                addemployeedgv.Rows.Add(i.ToString(), dr["employeeid"].ToString(), dr["employeename"].ToString(), dr["role"].ToString(), dr["employeeaddress"].ToString(), dr["employeephoneno"].ToString(), dr["fathersname"].ToString(), dr["mothersname"].ToString(), dr["citizenshipno"].ToString(), dr["email"].ToString());
-            }
-            dr.Close();
-            con.Close();
-
-
-        }*/
+              DataTable dt = new DataTable();
+              SqlDataReader dr = cmd.ExecuteReader();
+             // addemployeedgv.Rows.Clear();
+              while (dr.Read())
+              {
+                  i = i + 1;
+                  addemployeedgv.Rows.Add(i.ToString(), dr["employeeid"].ToString(), dr["employeename"].ToString(), dr["role"].ToString(), dr["employeeaddress"].ToString(), dr["employeephoneno"].ToString(), dr["fathersname"].ToString(), dr["mothersname"].ToString(), dr["citizenshipno"].ToString(), dr["email"].ToString());
+              }
+              dr.Close();
+              con.Close();
 
 
-        private void signupbtn_Click(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTS1;Integrated Security=True");
-
-            con.Open();
-
-
-
-            try
-            {
-
-                SqlDataAdapter adap = new SqlDataAdapter("select * from EmployeeTB where employeeid='" + employeeidtxtbox.Text + "'", con);
-                DataTable dt = new DataTable();
-                adap.Fill(dt);
-                if (dt.Rows.Count > 0)
-                {
-                    MessageBox.Show("Data Already Exists");
-
-                }
-                else
-                {
-
-                //con.Open();
-                if (con.State == ConnectionState.Closed)
-                    con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                    cmd.CommandType = CommandType.Text;
-                    do
-                    {
-                        String query = "insert into EmployeeTB values('"
-                            + employeeidtxtbox.Text + "','" + employeenametxtbox.Text + "','"
-                            + rolecomboBox.Text + "',  '" + employeeaddresstxtbox.Text + "','"
-                            + employeephonenotxtbox.Text + "',  '"
-                            + employeefatherstxtbox.Text + "',  '"
-                            + employeemothersnametxtbox.Text + "',  '"
-                            + cno.Text + "',  '"
-                            + mailtextBox.Text + "',  '"
-                            + eppassbox.Text
-                            + "',  '"
-                            + cppassbox.Text
-                            + "')";
-                        cmd.CommandText = query;
-                        cmd.ExecuteNonQuery();
-                    } while (eppassbox.Text == cppassbox.Text);
-                   
-                    
-                    con.Close();
-                    MessageBox.Show("Record Inserted Sucessfully");
-                    //displayemployee();
-                    this.Hide();
-                    LOG log = new LOG();
-                    log.Show();
-
-                }
-
-        }
-            catch(Exception )
-            {
-                if (con.State == ConnectionState.Open)
-                    con.Close();
-                MessageBox.Show("                Error! \n Insert missing data field.");
-                //this.Hide();
-                //LOG log = new LOG();
-                //log.Show();
-            }
-}
-
+          }*/
         void refreshemployee()
         {
             employeeidtxtbox.Text = "";
@@ -127,11 +58,9 @@ namespace Bus_Ticketing_System_1
             cno.Text = "";
             mailtextBox.Text = "";
             eppassbox.Text = "";
-            cppassbox.Text = ""; 
+            cppassbox.Text = "";
 
         }
-
-       
 
         private void SIgnUp_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -142,8 +71,84 @@ namespace Bus_Ticketing_System_1
                 LOG log = new LOG();
                 log.Show();
             }
-           
-           
+
+
         }
+
+        private void signupbtn_Click(object sender, EventArgs e)
+        {
+
+
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTS1;Integrated Security=True");
+
+            con.Open();
+
+
+
+
+
+            SqlDataAdapter adap = new SqlDataAdapter("select * from EmployeeTB where employeeid='" + employeeidtxtbox.Text + "'", con);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
+           
+           
+
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+
+                if (eppassbox.Text == cppassbox.Text)
+                {
+                    if (dt.Rows.Count > 0)
+                    {
+                        MessageBox.Show("Data Already Exists");
+
+                    }
+                    else
+                    {
+                        String query = "insert into EmployeeTB values('"
+                       + employeeidtxtbox.Text + "','" + employeenametxtbox.Text + "','"
+                       + rolecomboBox.Text + "',  '" + employeeaddresstxtbox.Text + "','"
+                       + employeephonenotxtbox.Text + "',  '"
+                       + employeefatherstxtbox.Text + "',  '"
+                       + employeemothersnametxtbox.Text + "',  '"
+                       + cno.Text + "',  '"
+                       + mailtextBox.Text + "',  '"
+                       + eppassbox.Text
+                       + "')";
+                        cmd.CommandText = query;
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        MessageBox.Show("Record Inserted Sucessfully");
+                        //displayemployee();
+                        this.Hide();
+                        LOG log = new LOG();
+                        log.Show();
+                        refreshemployee();
+                    }
+
+               
+                }
+
+                else
+                {
+                    MessageBox.Show("passwords didn't match.");
+                }
+
+            
+
+        }
+            
+           
     }
+
+       
+       
+
+       
+    
 }

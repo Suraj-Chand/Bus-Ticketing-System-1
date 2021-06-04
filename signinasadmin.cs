@@ -60,7 +60,7 @@ namespace Bus_Ticketing_System_1
                     }
                     else
                     {
-                        MessageBox.Show("Not a Administrator Username or Password.");
+                        MessageBox.Show("Not a Administrator Name or Password.");
                         clear();
                     }
 
@@ -71,22 +71,23 @@ namespace Bus_Ticketing_System_1
                
 
             }
-            
+            else if (string.IsNullOrWhiteSpace(txtBoxUserName.Text) && string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                MessageBox.Show("Enter the Missing Fields.");
+            }
+
             else if (string.IsNullOrWhiteSpace(txtBoxUserName.Text))
             {
-                MessageBox.Show("User Name is Missing.");
+                MessageBox.Show("Employee Name is Missing.");
             }
             else if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
                 MessageBox.Show("Password is Missing.");
             }
-            else if (string.IsNullOrWhiteSpace(txtBoxUserName.Text) || string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                MessageBox.Show("Enter the Missing Fields.");
-            }
+           
             else
             {
-                MessageBox.Show("Incorrect Username or Password.");
+                MessageBox.Show("Incorrect Employee Name or Password.");
             }
 
             clear();
@@ -119,6 +120,41 @@ namespace Bus_Ticketing_System_1
                 LOG log = new LOG();
                 log.Show();
             }
+        }
+
+        private void txtBoxUserName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxUserName.Text == "" || string.IsNullOrEmpty(txtBoxUserName.Text) || string.IsNullOrWhiteSpace(txtBoxUserName.Text))
+            {
+                errorProvider1.Icon = Properties.Resources.close;
+                errorProvider1.SetError(this.txtBoxUserName, "Enter Employee Name.");
+            }
+            else
+            {
+                errorProvider1.Icon = Properties.Resources.ok;
+                errorProvider1.SetError(this.txtBoxUserName, "ok");
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "" || string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                errorProvider2.Icon = Properties.Resources.close;
+                errorProvider2.SetError(this.textBox1, "Enter Password.");
+            }
+            else
+            {
+                errorProvider2.Icon = Properties.Resources.ok;
+                errorProvider2.SetError(this.textBox1, "ok");
+            }
+        }
+
+        private void signinasadmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            LOG log = new LOG();
+            log.Show();
         }
     }
 }
