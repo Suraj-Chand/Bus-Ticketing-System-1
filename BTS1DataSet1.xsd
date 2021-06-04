@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BTS1DataSet1" targetNamespace="http://tempuri.org/BTS1DataSet1.xsd" xmlns:mstns="http://tempuri.org/BTS1DataSet1.xsd" xmlns="http://tempuri.org/BTS1DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BTS1ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BTS1ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Bus_Ticketing_System_1.Properties.Settings.GlobalReference.Default.BTS1ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EmployeeTBTableAdapter" GeneratorDataComponentClassName="EmployeeTBTableAdapter" Name="EmployeeTB" UserDataComponentName="EmployeeTBTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BTS1ConnectionString (Settings)" DbObjectName="BTS1.dbo.EmployeeTB" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT employeeaddress FROM dbo.EmployeeTB</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="employeeaddress" DataSetColumn="employeeaddress" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="stationsTableAdapter" GeneratorDataComponentClassName="stationsTableAdapter" Name="stations" UserDataComponentName="stationsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BTS1ConnectionString (Settings)" DbObjectName="BTS1.dbo.stations" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT stationaddress FROM dbo.stations</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="stationaddress" DataSetColumn="stationaddress" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ticketcreatorTableAdapter" GeneratorDataComponentClassName="ticketcreatorTableAdapter" Name="ticketcreator" UserDataComponentName="ticketcreatorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BTS1ConnectionString (Settings)" DbObjectName="BTS1.dbo.ticketcreator" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT sourcestation, destinationstation FROM dbo.ticketcreator</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="sourcestation" DataSetColumn="sourcestation" />
+              <Mapping SourceColumn="destinationstation" DataSetColumn="destinationstation" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BTS1DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BTS1DataSet1" msprop:Generator_UserDSName="BTS1DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="EmployeeTB" msprop:Generator_TableClassName="EmployeeTBDataTable" msprop:Generator_TableVarName="tableEmployeeTB" msprop:Generator_TablePropName="EmployeeTB" msprop:Generator_RowDeletingName="EmployeeTBRowDeleting" msprop:Generator_RowChangingName="EmployeeTBRowChanging" msprop:Generator_RowEvHandlerName="EmployeeTBRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeTBRowDeleted" msprop:Generator_UserTableName="EmployeeTB" msprop:Generator_RowChangedName="EmployeeTBRowChanged" msprop:Generator_RowEvArgName="EmployeeTBRowChangeEvent" msprop:Generator_RowClassName="EmployeeTBRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="employeeaddress" msprop:Generator_ColumnVarNameInTable="columnemployeeaddress" msprop:Generator_ColumnPropNameInRow="employeeaddress" msprop:Generator_ColumnPropNameInTable="employeeaddressColumn" msprop:Generator_UserColumnName="employeeaddress">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="stations" msprop:Generator_TableClassName="stationsDataTable" msprop:Generator_TableVarName="tablestations" msprop:Generator_TablePropName="stations" msprop:Generator_RowDeletingName="stationsRowDeleting" msprop:Generator_RowChangingName="stationsRowChanging" msprop:Generator_RowEvHandlerName="stationsRowChangeEventHandler" msprop:Generator_RowDeletedName="stationsRowDeleted" msprop:Generator_UserTableName="stations" msprop:Generator_RowChangedName="stationsRowChanged" msprop:Generator_RowEvArgName="stationsRowChangeEvent" msprop:Generator_RowClassName="stationsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="stationaddress" msprop:Generator_ColumnVarNameInTable="columnstationaddress" msprop:Generator_ColumnPropNameInRow="stationaddress" msprop:Generator_ColumnPropNameInTable="stationaddressColumn" msprop:Generator_UserColumnName="stationaddress">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ticketcreator" msprop:Generator_TableClassName="ticketcreatorDataTable" msprop:Generator_TableVarName="tableticketcreator" msprop:Generator_TablePropName="ticketcreator" msprop:Generator_RowDeletingName="ticketcreatorRowDeleting" msprop:Generator_RowChangingName="ticketcreatorRowChanging" msprop:Generator_RowEvHandlerName="ticketcreatorRowChangeEventHandler" msprop:Generator_RowDeletedName="ticketcreatorRowDeleted" msprop:Generator_UserTableName="ticketcreator" msprop:Generator_RowChangedName="ticketcreatorRowChanged" msprop:Generator_RowEvArgName="ticketcreatorRowChangeEvent" msprop:Generator_RowClassName="ticketcreatorRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="sourcestation" msprop:Generator_ColumnVarNameInTable="columnsourcestation" msprop:Generator_ColumnPropNameInRow="sourcestation" msprop:Generator_ColumnPropNameInTable="sourcestationColumn" msprop:Generator_UserColumnName="sourcestation">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="destinationstation" msprop:Generator_ColumnVarNameInTable="columndestinationstation" msprop:Generator_ColumnPropNameInRow="destinationstation" msprop:Generator_ColumnPropNameInTable="destinationstationColumn" msprop:Generator_UserColumnName="destinationstation">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
