@@ -29,6 +29,8 @@ namespace Bus_Ticketing_System_1
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePassword));
             this.exitbtn = new System.Windows.Forms.Button();
             this.coppsw = new System.Windows.Forms.Button();
             this.confpass = new System.Windows.Forms.TextBox();
@@ -37,6 +39,12 @@ namespace Bus_Ticketing_System_1
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.empuser = new System.Windows.Forms.TextBox();
+            this.errorProvideremployeename = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvidernewpass = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderconfirmnewpass = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvideremployeename)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvidernewpass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderconfirmnewpass)).BeginInit();
             this.SuspendLayout();
             // 
             // exitbtn
@@ -68,19 +76,23 @@ namespace Bus_Ticketing_System_1
             // 
             // confpass
             // 
+            this.errorProviderconfirmnewpass.SetError(this.confpass, "Enter Confirm Password");
             this.confpass.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confpass.Location = new System.Drawing.Point(287, 161);
             this.confpass.Name = "confpass";
             this.confpass.Size = new System.Drawing.Size(214, 25);
             this.confpass.TabIndex = 2;
+            this.confpass.TextChanged += new System.EventHandler(this.confpass_TextChanged);
             // 
             // newpass
             // 
+            this.errorProvidernewpass.SetError(this.newpass, "Enter New Password");
             this.newpass.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newpass.Location = new System.Drawing.Point(287, 109);
             this.newpass.Name = "newpass";
             this.newpass.Size = new System.Drawing.Size(214, 25);
             this.newpass.TabIndex = 1;
+            this.newpass.TextChanged += new System.EventHandler(this.newpass_TextChanged);
             // 
             // label3
             // 
@@ -114,11 +126,31 @@ namespace Bus_Ticketing_System_1
             // 
             // empuser
             // 
+            this.errorProvideremployeename.SetError(this.empuser, "Enter Employee Name First");
             this.empuser.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empuser.Location = new System.Drawing.Point(287, 59);
             this.empuser.Name = "empuser";
             this.empuser.Size = new System.Drawing.Size(214, 25);
-            this.empuser.TabIndex = 1;
+            this.empuser.TabIndex = 0;
+            this.empuser.TextChanged += new System.EventHandler(this.empuser_TextChanged);
+            // 
+            // errorProvideremployeename
+            // 
+            this.errorProvideremployeename.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvideremployeename.ContainerControl = this;
+            this.errorProvideremployeename.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvideremployeename.Icon")));
+            // 
+            // errorProvidernewpass
+            // 
+            this.errorProvidernewpass.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvidernewpass.ContainerControl = this;
+            this.errorProvidernewpass.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvidernewpass.Icon")));
+            // 
+            // errorProviderconfirmnewpass
+            // 
+            this.errorProviderconfirmnewpass.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderconfirmnewpass.ContainerControl = this;
+            this.errorProviderconfirmnewpass.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderconfirmnewpass.Icon")));
             // 
             // ChangePassword
             // 
@@ -139,6 +171,9 @@ namespace Bus_Ticketing_System_1
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangePassword";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChangePassword_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvideremployeename)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvidernewpass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderconfirmnewpass)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,5 +189,8 @@ namespace Bus_Ticketing_System_1
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox empuser;
+        private System.Windows.Forms.ErrorProvider errorProvideremployeename;
+        private System.Windows.Forms.ErrorProvider errorProvidernewpass;
+        private System.Windows.Forms.ErrorProvider errorProviderconfirmnewpass;
     }
 }
