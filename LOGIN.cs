@@ -11,10 +11,11 @@ using System.Data.SqlClient;
 
 namespace Bus_Ticketing_System_1
 {
+    
     public partial class LOG : Form
     {
 
-
+        bool flag = false;
         bool mouseDown;
         private Point offset;
 
@@ -32,80 +33,107 @@ namespace Bus_Ticketing_System_1
 
         private void loginbtn_Click(object sender, EventArgs e)
         {
+
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTS1;Integrated Security=True");
 
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("select * from EmployeeTB where employeename='"+ comboBoxUserName.Text+"' and pass='"+ textBox1.Text+"'",con);
+            SqlCommand cmd = new SqlCommand("select * from EmployeeTB where employeename='" + comboBoxUserName.Text + "' and pass='" + textBox1.Text + "'", con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-
-          
-
-
-            if (dt.Rows.Count > 0)
+           
+            
+            try
             {
-
-                string cmbItemVAlue = comboBoxRole.SelectedItem.ToString();
-
-                for (int i=0;i<dt.Rows.Count;i++)
+               
+               
+                if (dt.Rows.Count > 0 && comboBoxRole.Text!="" && comboBoxUserName.Text!="" && textBox1.Text!="")
                 {
-                    if (dt.Rows[i] ["role"].ToString()== cmbItemVAlue)
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        MessageBox.Show("You are LoggedIn as "+dt.Rows[i][2]);
+                        string cmbItemVAlue = comboBoxRole.SelectedItem.ToString();
+
+                        if (dt.Rows[i]["role"].ToString() == cmbItemVAlue)
                         {
-                            this.Hide();
-                            main ss = new main();
-                            clear();
-                            ss.Show();
-                          
+                            MessageBox.Show("You are LoggedIn as " + dt.Rows[i][2]);
+                            //if(comboBoxRole.Text=="Administrator")
+                            //{
+                                this.Hide();
+                                mainadmin ss = new mainadmin(comboBoxRole.Text);
+                                clear();
+                                ss.Show();
+                            //}
+                            //else
+                            //{
+                            //    this.Hide();
+                            //    main ma = new main(comboBoxRole.Text);
+                            //    clear();
+                            //    ma.Show();
+                            //}
+
+
+
+
 
                         }
-                        
-                       
-                    }
-                    else
-                    {
-                        string message = $"  User Name or Password Mis-Match ! \n Not a {comboBoxRole.Text} Name or Password .";
-                        string title = "Error";
-                        MessageBoxButtons btn = MessageBoxButtons.OK;
-                        MessageBox.Show(message,title,btn, MessageBoxIcon.Exclamation );
-                        clear();
+                        else
+                        {
+                            string message = $"  User Name or Password Mis-Match ! \n Not a {comboBoxRole.Text} Name or Password .";
+                            string title = "Error";
+                            MessageBoxButtons btn = MessageBoxButtons.OK;
+                            MessageBox.Show(message, title, btn, MessageBoxIcon.Exclamation);
+                            clear();
+                        }
                     }
                 }
+                else if (string.IsNullOrWhiteSpace(comboBoxRole.Text) || comboBoxRole.Text=="" && string.IsNullOrWhiteSpace(comboBoxUserName.Text) && string.IsNullOrWhiteSpace(textBox1.Text))
+                {
+                    MessageBox.Show("Enter the Missing Fields.");
+                }
+
+                else if (string.IsNullOrWhiteSpace(comboBoxUserName.Text) && string.IsNullOrWhiteSpace(textBox1.Text))
+                {
+                    MessageBox.Show("Enter User Name and Password.");
+                }
+                else if (string.IsNullOrWhiteSpace(comboBoxRole.Text))
+                {
+                    MessageBox.Show("Select Role Field.");
+                }
+                
+                else if (string.IsNullOrWhiteSpace(comboBoxUserName.Text))
+                {
+                    MessageBox.Show("User Name is Missing.");
+                }
+                else if (string.IsNullOrWhiteSpace(textBox1.Text))
+                {
+                    MessageBox.Show("Password is Missing.");
+                }
+
+                else
+                {
+                    MessageBox.Show("Incorrect Username or Password.");
+                }
+
+
             }
-            else if (string.IsNullOrWhiteSpace(comboBoxRole.Text) && string.IsNullOrWhiteSpace(comboBoxUserName.Text) && string.IsNullOrWhiteSpace(textBox1.Text))
+            catch(Exception ex)
             {
-                MessageBox.Show("Enter the Missing Fields.");
+              MessageBox.Show("Enter the Missing Fields.");
             }
 
-            else if (string.IsNullOrWhiteSpace(comboBoxRole.Text))
-            {
-                MessageBox.Show("Select Role Field.");
-            }
-            else if (string.IsNullOrWhiteSpace(comboBoxUserName.Text))
-            {
-                MessageBox.Show("User Name is Missing.");
-            }
-            else if (string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                MessageBox.Show("Password is Missing.");
-            }
-           
-            else
-            {
-                MessageBox.Show("Incorrect Username or Password.");
-            }
+            
             clear();
 
 
             con.Close();
 
 
+
         }
 
-          
+
         private void button2_Click_1(object sender, EventArgs e)
         {
             if (textBox1.PasswordChar == Convert.ToChar("*"))
@@ -134,10 +162,41 @@ namespace Bus_Ticketing_System_1
 
         private void signupbtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            signinasadmin sa = new signinasadmin();
-            sa.Show();
-            clear();
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTS1;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "select * from [EmployeeTB]";
+            cmd.Connection = con;
+            SqlDataReader rd = cmd.ExecuteReader();
+            while(rd.Read())
+            {
+                if (rd[1].ToString() == comboBoxUserName.Text) ;
+                {
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag == false)
+            {
+                this.Hide();
+                SIgnUp su = new SIgnUp("");
+                su.Show();
+                clear();
+                //    this.Hide();
+                //    signinasadmin sa = new signinasadmin();
+                //    sa.Show();
+                //    clear();
+                }
+            else
+            {
+                this.Hide();
+                signupas si = new signupas();
+                si.Show();
+            }
+         
+           
+           
+           
         }
 
        
@@ -163,10 +222,12 @@ namespace Bus_Ticketing_System_1
             if (comboBoxRole.Text == "" || string.IsNullOrEmpty(comboBoxRole.Text) || string.IsNullOrWhiteSpace(comboBoxRole.Text))
             {
                 errorProviderrole.Icon = Properties.Resources.close;
+                errorProviderrole.SetError(this.comboBoxRole, "Select Employee Role.");
             }
             else
             {
                 errorProviderrole.Icon = Properties.Resources.ok;
+                errorProviderrole.SetError(this.comboBoxRole, "Ok.");
             }
         }
 
@@ -177,10 +238,12 @@ namespace Bus_Ticketing_System_1
             if (comboBoxUserName.Text == "" || string.IsNullOrEmpty(comboBoxUserName.Text) || string.IsNullOrWhiteSpace(comboBoxUserName.Text))
             {
                 errorProvidername.Icon = Properties.Resources.close;
+                errorProvidername.SetError(this.comboBoxUserName, "Enter User Name.");
             }
             else
             {
                 errorProvidername.Icon = Properties.Resources.ok;
+                errorProvidername.SetError(this.comboBoxUserName, "Ok.");
             }
         }
 

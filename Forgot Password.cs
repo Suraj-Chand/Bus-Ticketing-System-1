@@ -51,14 +51,13 @@ namespace Bus_Ticketing_System_1
                         {
                             if (dr.Read())
                             {
+                                this.Hide();
+                                ChangePassword cp = new ChangePassword(txtUserName.Text);
                                 clear();
                                 errorProvideremployeename.Icon = Properties.Resources.close;
                                 errorProvideremail.Icon = Properties.Resources.close;
 
-                                this.Hide();
-                                ChangePassword cp = new ChangePassword();
-
-                                cp.Show();
+                                cp.Show(this);
                             }
                             else
                             {
@@ -99,7 +98,7 @@ namespace Bus_Ticketing_System_1
         {
             if(e.Cancel==true)
             {
-                this.Dispose();
+                this.Close();
                 LOG log = new LOG();
                 log.Show();
             }
@@ -139,10 +138,10 @@ namespace Bus_Ticketing_System_1
                         {
                             if(dr.Read())
                             {
+                               MessageBox.Show("Your Password is:- " + dr.GetValue(0).ToString());
                                 clearshow();
                                 errorProvideremployeename.Icon = Properties.Resources.close;
                                 errorProvideremail.Icon = Properties.Resources.close;
-                                MessageBox.Show("Your Password is:- " + dr.GetValue(0).ToString());
                             }
                             else
                             {
@@ -181,10 +180,12 @@ namespace Bus_Ticketing_System_1
             if (txtUserName.Text == "" || string.IsNullOrEmpty(txtUserName.Text) || string.IsNullOrWhiteSpace(txtUserName.Text))
             {
                 errorProvideremployeename.Icon = Properties.Resources.close;
+                errorProvideremployeename.SetError(this.txtUserName, "Enter Employee Name.");
             }
             else
             {
                 errorProvideremployeename.Icon = Properties.Resources.ok;
+                errorProvideremployeename.SetError(this.txtUserName, "Ok.");
             }
         }
 
@@ -194,16 +195,18 @@ namespace Bus_Ticketing_System_1
             if (mail.Text == "" || string.IsNullOrEmpty(mail.Text) || string.IsNullOrWhiteSpace(mail.Text))
             {
                 errorProvideremail.Icon = Properties.Resources.close;
+                errorProvideremail.SetError(this.mail, "Enter E-Mail Address.");
             }
             else
             {
                 errorProvideremail.Icon = Properties.Resources.ok;
+                errorProvideremail.SetError(this.mail, "Ok");
             }
         }
 
         private void Forgot_Password_FormClosed(object sender, FormClosedEventArgs e)
         {
-                this.Dispose();
+                this.Hide();
                 LOG log = new LOG();
                 log.Show();
             
