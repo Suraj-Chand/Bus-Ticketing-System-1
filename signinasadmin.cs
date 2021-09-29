@@ -52,10 +52,10 @@ namespace Bus_Ticketing_System_1
                         MessageBox.Show("You are LoggedIn as " + dt.Rows[i][2]);
                        
                             this.Hide();
-                            SIgnUp su = new SIgnUp();
+                            SIgnUp su = new SIgnUp(comboBoxRole.Text);
                             su.Show();
                             con.Close();
-                        clear();
+                            clear();
 
                     }
                     else
@@ -91,12 +91,12 @@ namespace Bus_Ticketing_System_1
             }
 
             clear();
-            if (this.IsDisposed)
-            {
-                this.Hide();
-                SIgnUp su = new SIgnUp();
-                su.Show();
-            }
+            //if (this.IsDisposed)
+            //{
+            //    this.Hide();
+            //    SIgnUp su = new SIgnUp();
+            //    su.Show();
+            //}
             con.Close();
 
 

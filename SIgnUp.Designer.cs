@@ -29,6 +29,7 @@ namespace Bus_Ticketing_System_1
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SIgnUp));
             this.employeenametxtbox = new System.Windows.Forms.TextBox();
             this.mailtextBox = new System.Windows.Forms.TextBox();
@@ -54,51 +55,83 @@ namespace Bus_Ticketing_System_1
             this.employeemothersnametxtbox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cno = new System.Windows.Forms.TextBox();
+            this.empid = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ename = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erole = new System.Windows.Forms.ErrorProvider(this.components);
+            this.eadd = new System.Windows.Forms.ErrorProvider(this.components);
+            this.eph = new System.Windows.Forms.ErrorProvider(this.components);
+            this.efn = new System.Windows.Forms.ErrorProvider(this.components);
+            this.emn = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ecno = new System.Windows.Forms.ErrorProvider(this.components);
+            this.email = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epass = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ecpass = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.empid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ename)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erole)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eadd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eph)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.efn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ecno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.email)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ecpass)).BeginInit();
             this.SuspendLayout();
             // 
             // employeenametxtbox
             // 
             this.employeenametxtbox.AllowDrop = true;
             this.employeenametxtbox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ename.SetError(this.employeenametxtbox, "Enter Employee Name.");
             this.employeenametxtbox.Location = new System.Drawing.Point(229, 138);
             this.employeenametxtbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.employeenametxtbox.Multiline = true;
             this.employeenametxtbox.Name = "employeenametxtbox";
             this.employeenametxtbox.Size = new System.Drawing.Size(294, 25);
             this.employeenametxtbox.TabIndex = 1;
+            this.employeenametxtbox.TextChanged += new System.EventHandler(this.employeenametxtbox_TextChanged);
+            this.employeenametxtbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.employeenametxtbox_KeyPress);
             // 
             // mailtextBox
             // 
             this.mailtextBox.AllowDrop = true;
             this.mailtextBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.email.SetError(this.mailtextBox, "Enter Employee E-Mail Address.");
             this.mailtextBox.Location = new System.Drawing.Point(229, 479);
             this.mailtextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mailtextBox.Multiline = true;
             this.mailtextBox.Name = "mailtextBox";
             this.mailtextBox.Size = new System.Drawing.Size(294, 25);
             this.mailtextBox.TabIndex = 8;
+            this.mailtextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mailtextBox_KeyUp);
             // 
             // eppassbox
             // 
             this.eppassbox.AllowDrop = true;
             this.eppassbox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.epass.SetError(this.eppassbox, "Enter Password.");
             this.eppassbox.Location = new System.Drawing.Point(229, 526);
             this.eppassbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.eppassbox.Multiline = true;
             this.eppassbox.Name = "eppassbox";
             this.eppassbox.Size = new System.Drawing.Size(294, 25);
             this.eppassbox.TabIndex = 9;
+            this.eppassbox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.eppassbox_KeyUp);
             // 
             // cppassbox
             // 
             this.cppassbox.AllowDrop = true;
             this.cppassbox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ecpass.SetError(this.cppassbox, "Enter Confirm Password.");
             this.cppassbox.Location = new System.Drawing.Point(229, 573);
             this.cppassbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cppassbox.Multiline = true;
             this.cppassbox.Name = "cppassbox";
             this.cppassbox.Size = new System.Drawing.Size(294, 25);
             this.cppassbox.TabIndex = 10;
+            this.cppassbox.TextChanged += new System.EventHandler(this.cppassbox_TextChanged);
+            this.cppassbox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cppassbox_KeyUp);
             // 
             // signupbtn
             // 
@@ -122,16 +155,15 @@ namespace Bus_Ticketing_System_1
             this.rolecomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.rolecomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.rolecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.erole.SetError(this.rolecomboBox, "Select Employee Role.");
             this.rolecomboBox.FormattingEnabled = true;
-            this.rolecomboBox.Items.AddRange(new object[] {
-            "Administrator",
-            "Receptionist",
-            "Employee"});
             this.rolecomboBox.Location = new System.Drawing.Point(229, 189);
             this.rolecomboBox.Margin = new System.Windows.Forms.Padding(4);
             this.rolecomboBox.Name = "rolecomboBox";
             this.rolecomboBox.Size = new System.Drawing.Size(294, 25);
             this.rolecomboBox.TabIndex = 2;
+            this.rolecomboBox.SelectedIndexChanged += new System.EventHandler(this.rolecomboBox_SelectedIndexChanged);
+           // this.rolecomboBox.SelectedValueChanged += new System.EventHandler(this.rolecomboBox_SelectedValueChanged);
             // 
             // label1
             // 
@@ -201,12 +233,14 @@ namespace Bus_Ticketing_System_1
             // 
             this.employeeidtxtbox.AllowDrop = true;
             this.employeeidtxtbox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.empid.SetError(this.employeeidtxtbox, "Enter Employee ID.");
             this.employeeidtxtbox.Location = new System.Drawing.Point(229, 91);
             this.employeeidtxtbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.employeeidtxtbox.Multiline = true;
             this.employeeidtxtbox.Name = "employeeidtxtbox";
             this.employeeidtxtbox.Size = new System.Drawing.Size(294, 25);
             this.employeeidtxtbox.TabIndex = 0;
+            this.employeeidtxtbox.TextChanged += new System.EventHandler(this.employeeidtxtbox_TextChanged);
             // 
             // label8
             // 
@@ -221,12 +255,14 @@ namespace Bus_Ticketing_System_1
             // 
             this.employeeaddresstxtbox.AllowDrop = true;
             this.employeeaddresstxtbox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.eadd.SetError(this.employeeaddresstxtbox, "Enter Employee Address.");
             this.employeeaddresstxtbox.Location = new System.Drawing.Point(229, 239);
             this.employeeaddresstxtbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.employeeaddresstxtbox.Multiline = true;
             this.employeeaddresstxtbox.Name = "employeeaddresstxtbox";
             this.employeeaddresstxtbox.Size = new System.Drawing.Size(294, 25);
             this.employeeaddresstxtbox.TabIndex = 3;
+            this.employeeaddresstxtbox.TextChanged += new System.EventHandler(this.employeeaddresstxtbox_TextChanged);
             // 
             // label9
             // 
@@ -241,12 +277,15 @@ namespace Bus_Ticketing_System_1
             // 
             this.employeephonenotxtbox.AllowDrop = true;
             this.employeephonenotxtbox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.eph.SetError(this.employeephonenotxtbox, "Enter Employee Phone No.");
             this.employeephonenotxtbox.Location = new System.Drawing.Point(229, 287);
             this.employeephonenotxtbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.employeephonenotxtbox.Multiline = true;
             this.employeephonenotxtbox.Name = "employeephonenotxtbox";
             this.employeephonenotxtbox.Size = new System.Drawing.Size(294, 25);
             this.employeephonenotxtbox.TabIndex = 4;
+            this.employeephonenotxtbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.employeephonenotxtbox_KeyPress);
+            this.employeephonenotxtbox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.employeephonenotxtbox_KeyUp);
             // 
             // label10
             // 
@@ -261,12 +300,15 @@ namespace Bus_Ticketing_System_1
             // 
             this.employeefatherstxtbox.AllowDrop = true;
             this.employeefatherstxtbox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.efn.SetError(this.employeefatherstxtbox, "Enter Employee Father\'s Name.");
             this.employeefatherstxtbox.Location = new System.Drawing.Point(229, 335);
             this.employeefatherstxtbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.employeefatherstxtbox.Multiline = true;
             this.employeefatherstxtbox.Name = "employeefatherstxtbox";
             this.employeefatherstxtbox.Size = new System.Drawing.Size(294, 25);
             this.employeefatherstxtbox.TabIndex = 5;
+            this.employeefatherstxtbox.TextChanged += new System.EventHandler(this.employeefatherstxtbox_TextChanged);
+            this.employeefatherstxtbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.employeefatherstxtbox_KeyPress);
             // 
             // label11
             // 
@@ -281,12 +323,15 @@ namespace Bus_Ticketing_System_1
             // 
             this.employeemothersnametxtbox.AllowDrop = true;
             this.employeemothersnametxtbox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.emn.SetError(this.employeemothersnametxtbox, "Enter Employee Mother\'s Name.");
             this.employeemothersnametxtbox.Location = new System.Drawing.Point(229, 382);
             this.employeemothersnametxtbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.employeemothersnametxtbox.Multiline = true;
             this.employeemothersnametxtbox.Name = "employeemothersnametxtbox";
             this.employeemothersnametxtbox.Size = new System.Drawing.Size(294, 25);
             this.employeemothersnametxtbox.TabIndex = 6;
+            this.employeemothersnametxtbox.TextChanged += new System.EventHandler(this.employeemothersnametxtbox_TextChanged);
+            this.employeemothersnametxtbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.employeemothersnametxtbox_KeyPress);
             // 
             // label12
             // 
@@ -301,12 +346,80 @@ namespace Bus_Ticketing_System_1
             // 
             this.cno.AllowDrop = true;
             this.cno.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ecno.SetError(this.cno, "Enter Citizenship No.");
             this.cno.Location = new System.Drawing.Point(229, 432);
             this.cno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cno.Multiline = true;
             this.cno.Name = "cno";
             this.cno.Size = new System.Drawing.Size(294, 25);
             this.cno.TabIndex = 7;
+            this.cno.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cno_KeyUp);
+            // 
+            // empid
+            // 
+            this.empid.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.empid.ContainerControl = this;
+            this.empid.Icon = ((System.Drawing.Icon)(resources.GetObject("empid.Icon")));
+            // 
+            // ename
+            // 
+            this.ename.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.ename.ContainerControl = this;
+            this.ename.Icon = ((System.Drawing.Icon)(resources.GetObject("ename.Icon")));
+            // 
+            // erole
+            // 
+            this.erole.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.erole.ContainerControl = this;
+            this.erole.Icon = ((System.Drawing.Icon)(resources.GetObject("erole.Icon")));
+            // 
+            // eadd
+            // 
+            this.eadd.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.eadd.ContainerControl = this;
+            this.eadd.Icon = ((System.Drawing.Icon)(resources.GetObject("eadd.Icon")));
+            // 
+            // eph
+            // 
+            this.eph.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.eph.ContainerControl = this;
+            this.eph.Icon = ((System.Drawing.Icon)(resources.GetObject("eph.Icon")));
+            // 
+            // efn
+            // 
+            this.efn.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.efn.ContainerControl = this;
+            this.efn.Icon = ((System.Drawing.Icon)(resources.GetObject("efn.Icon")));
+            // 
+            // emn
+            // 
+            this.emn.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.emn.ContainerControl = this;
+            this.emn.Icon = ((System.Drawing.Icon)(resources.GetObject("emn.Icon")));
+            // 
+            // ecno
+            // 
+            this.ecno.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.ecno.ContainerControl = this;
+            this.ecno.Icon = ((System.Drawing.Icon)(resources.GetObject("ecno.Icon")));
+            // 
+            // email
+            // 
+            this.email.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.email.ContainerControl = this;
+            this.email.Icon = ((System.Drawing.Icon)(resources.GetObject("email.Icon")));
+            // 
+            // epass
+            // 
+            this.epass.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.epass.ContainerControl = this;
+            this.epass.Icon = ((System.Drawing.Icon)(resources.GetObject("epass.Icon")));
+            // 
+            // ecpass
+            // 
+            this.ecpass.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.ecpass.ContainerControl = this;
+            this.ecpass.Icon = ((System.Drawing.Icon)(resources.GetObject("ecpass.Icon")));
             // 
             // SIgnUp
             // 
@@ -348,6 +461,19 @@ namespace Bus_Ticketing_System_1
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "  SignUp";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SIgnUp_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SIgnUp_FormClosed);
+            this.Load += new System.EventHandler(this.SIgnUp_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.empid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ename)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erole)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eadd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eph)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.efn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ecno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.email)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ecpass)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,5 +504,16 @@ namespace Bus_Ticketing_System_1
         private System.Windows.Forms.TextBox employeemothersnametxtbox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox cno;
+        private System.Windows.Forms.ErrorProvider empid;
+        private System.Windows.Forms.ErrorProvider ename;
+        private System.Windows.Forms.ErrorProvider erole;
+        private System.Windows.Forms.ErrorProvider eadd;
+        private System.Windows.Forms.ErrorProvider eph;
+        private System.Windows.Forms.ErrorProvider efn;
+        private System.Windows.Forms.ErrorProvider emn;
+        private System.Windows.Forms.ErrorProvider ecno;
+        private System.Windows.Forms.ErrorProvider email;
+        private System.Windows.Forms.ErrorProvider epass;
+        private System.Windows.Forms.ErrorProvider ecpass;
     }
 }
