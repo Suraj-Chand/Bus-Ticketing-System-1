@@ -20,8 +20,9 @@ namespace Bus_Ticketing_System_1
         // private object busouteTableAdapter;
         // private object bTMS1DataSet9;
 
-        public main()
-        {
+        string role;
+        public main(string s)
+        {            
             InitializeComponent();
             displaystation();
             displayemployee();
@@ -39,9 +40,19 @@ namespace Bus_Ticketing_System_1
             address();
             ss();
             sa();
-            
+            role = s;
         }
 
+        //String role;
+        //public main(String s)
+        //{
+        //    InitializeComponent();
+        //    role = s;
+        //}
+
+       
+
+       
         public void tic()
         {
             try
@@ -532,30 +543,7 @@ namespace Bus_Ticketing_System_1
         }
 
 
-        private void txtBus_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -584,25 +572,7 @@ namespace Bus_Ticketing_System_1
             this.Close();
         }
 
-        private void main_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'bTMS1DataSet9.busoute' table. You can move, or remove it, as needed.
-            // this.busouteTableAdapter.Fill(this.bTMS1DataSet9.busoute);
-
-        }
-
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void searchticketbtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private bool IsValid()
         {
             if (passengernametxtbox.Text == string.Empty)
@@ -613,13 +583,7 @@ namespace Bus_Ticketing_System_1
             return true;
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-
-
+        
         private void addstationbtn_Click(object sender, EventArgs e)
         {
 
@@ -748,7 +712,7 @@ namespace Bus_Ticketing_System_1
                     cmd.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record Inserted Sucessfully");
-                    refreshemployee();
+                    displayemployee();
 
 
                 }
@@ -1006,7 +970,7 @@ namespace Bus_Ticketing_System_1
             {
                 MessageBox.Show("Error in Inserting data");
             }
-            displaybusdetails();
+            
         }
 
 
@@ -1059,7 +1023,7 @@ namespace Bus_Ticketing_System_1
                     busmodeltxtbox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[6].Value.ToString();
                     drivercomboBox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[7].Value.ToString();
                     conductorcomboBox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[8].Value.ToString();
-                    displaybusdetails();
+                    
                 }
 
             }
@@ -1160,7 +1124,7 @@ namespace Bus_Ticketing_System_1
                     distancefromsourcetxtbox.Text = brcdgv.Rows[e.RowIndex].Cells[3].Value.ToString();
                     arrivaltimetxtbox.Text = brcdgv.Rows[e.RowIndex].Cells[4].Value.ToString();
                     departuretimetxtbox.Text = brcdgv.Rows[e.RowIndex].Cells[5].Value.ToString();
-                    displayroutecreator();
+                    
                 }
 
             }
@@ -1206,7 +1170,7 @@ namespace Bus_Ticketing_System_1
             address();
             ss();
             sa();
-            
+          
         }
 
         private void enterticketnotxtbox_TextChanged(object sender, EventArgs e)
@@ -1347,12 +1311,7 @@ namespace Bus_Ticketing_System_1
             log.Show();
         }
 
-        private void addemployeedgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //this.Select(Focus.addemployeedgv.Rows());
-            this.Select();
-            this.Focus();
-        }
+      
 
         private void main_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -1360,5 +1319,20 @@ namespace Bus_Ticketing_System_1
             LOG log = new LOG();
             log.Show();
         }
+
+
+        private void main_Load(object sender, EventArgs e)
+        {
+            // mainadmin.ActiveForm.Font = new Font("Vardana",18);
+            //if (role != "Administrator")
+            //{
+            //    tabControl1.TabPages.Remove(tabPage5);
+            //}
+        }
+
+
+       
+
+        
     }
 }
