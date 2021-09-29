@@ -82,7 +82,7 @@ namespace Bus_Ticketing_System_1
             this.confpass.Name = "confpass";
             this.confpass.Size = new System.Drawing.Size(214, 25);
             this.confpass.TabIndex = 2;
-            this.confpass.TextChanged += new System.EventHandler(this.confpass_TextChanged);
+            this.confpass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.confpass_KeyUp);
             // 
             // newpass
             // 
@@ -93,6 +93,7 @@ namespace Bus_Ticketing_System_1
             this.newpass.Size = new System.Drawing.Size(214, 25);
             this.newpass.TabIndex = 1;
             this.newpass.TextChanged += new System.EventHandler(this.newpass_TextChanged);
+            this.newpass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.newpass_KeyUp);
             // 
             // label3
             // 
@@ -126,6 +127,7 @@ namespace Bus_Ticketing_System_1
             // 
             // empuser
             // 
+            this.empuser.Enabled = false;
             this.errorProvideremployeename.SetError(this.empuser, "Enter Employee Name First");
             this.empuser.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empuser.Location = new System.Drawing.Point(287, 59);
@@ -171,6 +173,7 @@ namespace Bus_Ticketing_System_1
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangePassword";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChangePassword_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ChangePassword_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvideremployeename)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvidernewpass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderconfirmnewpass)).EndInit();

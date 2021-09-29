@@ -7,9 +7,11 @@ namespace Bus_Ticketing_System_1
 {
     public partial class ChangePassword : Form
     {
-        public ChangePassword()
+        //string name;
+        public ChangePassword(string n)
         {
             InitializeComponent();
+            empuser.Text = n;
         }
 
         private void exitbtn_Click(object sender, EventArgs e)
@@ -49,9 +51,10 @@ namespace Bus_Ticketing_System_1
                 {
                     if(confpass.Text!="")
                     {
+                        
                         if (newpass.Text == confpass.Text)
                         {
-
+                            
                             str = "update [EmployeeTB] set [pass] = '" + newpass.Text + "' where employeename='" + empuser.Text + "'  ";
                             con.Open();
                             cmd = new SqlCommand(str, con);
@@ -61,6 +64,10 @@ namespace Bus_Ticketing_System_1
                                 MessageBox.Show("Password Changed Successfully.");
                                 clear();
                                 con.Close();
+
+                                this.Hide();
+                                LOG log = new LOG();
+                                log.Show();
 
                             }
                             else
@@ -74,7 +81,8 @@ namespace Bus_Ticketing_System_1
                         }
                         else
                         {
-                            
+                            errorProviderconfirmnewpass.Icon = Properties.Resources.close;
+                            errorProviderconfirmnewpass.SetError(confpass, "Password Mismatch !");
                             MessageBox.Show("Passwords didn't match.");
 
                         }
@@ -99,7 +107,7 @@ namespace Bus_Ticketing_System_1
         {
             if (e.Cancel == true)
             {
-                this.Hide();
+                this.Close();
                 LOG log = new LOG();
                 log.Show();
             }
@@ -122,10 +130,12 @@ namespace Bus_Ticketing_System_1
             if (empuser.Text == "" || string.IsNullOrEmpty(empuser.Text) || string.IsNullOrWhiteSpace(empuser.Text))
             {
                 errorProvideremployeename.Icon = Properties.Resources.close;
+                errorProvideremployeename.SetError(this.empuser, "Enter Employee Name.");
             }
             else
             {
                 errorProvideremployeename.Icon = Properties.Resources.ok;
+                errorProvideremployeename.SetError(this.empuser, "Ok");
             }
         }
 
@@ -136,22 +146,61 @@ namespace Bus_Ticketing_System_1
             if (newpass.Text == "" || string.IsNullOrEmpty(newpass.Text) || string.IsNullOrWhiteSpace(newpass.Text))
             {
                 errorProvidernewpass.Icon = Properties.Resources.close;
+                errorProvidernewpass.SetError(this.newpass, "Enter New Password.");
             }
             else
             {
                 errorProvidernewpass.Icon = Properties.Resources.ok;
+                errorProvidernewpass.SetError(this.newpass, "Ok.");
             }
         }
 
-        private void confpass_TextChanged(object sender, EventArgs e)
+        //private void confpass_TextChanged(object sender, EventArgs e)
+        //{
+        //    if (confpass.Text == "" || string.IsNullOrEmpty(confpass.Text) || string.IsNullOrWhiteSpace(confpass.Text) && confpass.Text!=newpass.Text)
+        //    {
+        //       errorProviderconfirmnewpass.Icon = Properties.Resources.close;
+        //        errorProviderconfirmnewpass.SetError(confpass,"Password Mismatch");
+        //    }
+        //    else
+        //    {
+        //        errorProviderconfirmnewpass.Icon = Properties.Resources.ok;
+        //        errorProviderconfirmnewpass.SetError(confpass, "Password Matched");
+        //    }
+        //}
+
+        private void ChangePassword_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (confpass.Text == "" || string.IsNullOrEmpty(confpass.Text) || string.IsNullOrWhiteSpace(confpass.Text))
+            this.Hide();
+            LOG log = new LOG();
+            log.Show();
+        }
+
+        private void confpass_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (confpass.Text != newpass.Text)
             {
-               errorProviderconfirmnewpass.Icon = Properties.Resources.close;
+                errorProviderconfirmnewpass.Icon = Properties.Resources.close;
+                errorProviderconfirmnewpass.SetError(confpass, "Password Mismatch");
             }
             else
             {
                 errorProviderconfirmnewpass.Icon = Properties.Resources.ok;
+                errorProviderconfirmnewpass.SetError(confpass, "Password Matched");
+            }
+        }
+
+        private void newpass_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (newpass.TextLength >= 6)
+            {
+                errorProvidernewpass.Icon = Properties.Resources.ok;
+                errorProvidernewpass.SetError(this.newpass, "Ok");
+            }
+            else
+            {
+                errorProvidernewpass.Icon = Properties.Resources.close;
+                errorProvidernewpass.SetError(this.newpass, "Password must be atleast 6 Characters long");
             }
         }
     }

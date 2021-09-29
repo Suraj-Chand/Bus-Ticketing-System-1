@@ -62,6 +62,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -91,6 +92,7 @@
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="DB.cs" />
+    <Compile Include="DGVPrinter.cs" />
     <Compile Include="LOGIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +136,12 @@
     <Compile Include="SIgnUp.Designer.cs">
       <DependentUpon>SIgnUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="signupas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="signupas.Designer.cs">
+      <DependentUpon>signupas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SIgnUp.resx">
       <DependentUpon>SIgnUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="signupas.resx">
+      <DependentUpon>signupas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="BTS1DataSet.xsc">
       <DependentUpon>BTS1DataSet.xsd</DependentUpon>
@@ -222,6 +233,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Bus.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
