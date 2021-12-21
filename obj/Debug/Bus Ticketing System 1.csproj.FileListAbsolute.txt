@@ -55,7 +55,6 @@ C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1\bin\Debug\Bus Ticketing Syst
 C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1\bin\Debug\Bus Ticketing System 1.pdb
 C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1\bin\Debug\ast-ES\Bus Ticketing System 1.resources.dll
 C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1\bin\Debug\bn-BD\Bus Ticketing System 1.resources.dll
-C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1\obj\Debug\Bus Ticketing System 1.csprojAssemblyReference.cache
 C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1\obj\Debug\Bus_Ticketing_System_1.ChangePassword.resources
 C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1\obj\Debug\Bus_Ticketing_System_1.LOG.resources
 C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1\obj\Debug\Bus_Ticketing_System_1.main.resources
@@ -74,3 +73,63 @@ C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1\obj\Debug\Bus Ticketing Syst
 C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1\obj\Debug\Bus Ticketing System 1.exe
 C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1\obj\Debug\Bus Ticketing System 1.pdb
 C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1\obj\Debug\Bus_Ticketing_System_1.mainadmin.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1\obj\Debug\Bus Ticketing System 1.csprojAssemblyReference.cache
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1\obj\Debug\Bus_Ticketing_System_1.signupas.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus Ticketing System 1.csprojAssemblyReference.cache
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.ChangePassword.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.LOG.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.main.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.mainadmin.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.Properties.Resources.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.Forgot_Password.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.signinasadmin.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.SIgnUp.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.signupas.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.main.ast-ES.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.main.bn-BD.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus Ticketing System 1.csproj.GenerateResource.cache
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus Ticketing System 1.csproj.CoreCompileInputs.cache
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\bin\Debug\Bus Ticketing System.exe.config
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\bin\Debug\Bus Ticketing System.exe.manifest
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\bin\Debug\Bus Ticketing System.application
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\bin\Debug\Bus Ticketing System.exe
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\bin\Debug\Bus Ticketing System.pdb
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\bin\Debug\ast-ES\Bus Ticketing System.resources.dll
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\bin\Debug\bn-BD\Bus Ticketing System.resources.dll
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\ast-ES\Bus Ticketing System.resources.dll
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\bn-BD\Bus Ticketing System.resources.dll
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus Ticketing System.exe.manifest
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus Ticketing System.application
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus Ticketing System.exe
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\obj\Debug\Bus Ticketing System.pdb
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\bin\Debug\DESKTOP-1LF5S1M.mdf
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy\bin\Debug\DESKTOP-1LF5S1M_log.ldf
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\bin\Debug\DESKTOP-1LF5S1M.mdf
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\bin\Debug\DESKTOP-1LF5S1M_log.ldf
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\bin\Debug\Bus Ticketing System.exe.config
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\bin\Debug\Bus Ticketing System.exe.manifest
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\bin\Debug\Bus Ticketing System.application
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\bin\Debug\Bus Ticketing System.exe
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\bin\Debug\Bus Ticketing System.pdb
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\bin\Debug\ast-ES\Bus Ticketing System.resources.dll
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\bin\Debug\bn-BD\Bus Ticketing System.resources.dll
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus Ticketing System 1.csproj.AssemblyReference.cache
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.ChangePassword.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.LOG.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.main.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.mainadmin.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.Properties.Resources.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.Forgot_Password.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.signinasadmin.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.SIgnUp.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.signupas.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.main.ast-ES.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus_Ticketing_System_1.main.bn-BD.resources
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus Ticketing System 1.csproj.GenerateResource.cache
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus Ticketing System 1.csproj.CoreCompileInputs.cache
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\ast-ES\Bus Ticketing System.resources.dll
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\bn-BD\Bus Ticketing System.resources.dll
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus Ticketing System.exe.manifest
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus Ticketing System.application
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus Ticketing System.exe
+C:\Users\Suraj Chand\Desktop\Bus Ticketing System 1 - Copy (3)\Bus Ticketing System 1 - Copy\obj\Debug\Bus Ticketing System.pdb
