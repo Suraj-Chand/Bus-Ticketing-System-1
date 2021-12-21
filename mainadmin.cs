@@ -219,7 +219,7 @@ namespace Bus_Ticketing_System_1
 
                 drivercomboBox.Items.Clear();
                 while (dd.Read())
-                {                   
+                {
                     drivercomboBox.Items.Add(dd.GetValue(0).ToString());
                 }
                 dd.Close();
@@ -243,7 +243,7 @@ namespace Bus_Ticketing_System_1
 
                 conductorcomboBox.Items.Clear();
                 while (dd.Read())
-                {                   
+                {
                     conductorcomboBox.Items.Add(dd.GetValue(0).ToString());
                 }
                 dd.Close();
@@ -353,7 +353,7 @@ namespace Bus_Ticketing_System_1
                 try
                 {
 
-                    SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTMS1;Integrated Security=True");
+                    SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTS1;Integrated Security=True");
 
                     conn.Open();
                     SqlCommand ccm = new SqlCommand("select employeename from EmployeeTB", conn);
@@ -493,7 +493,7 @@ namespace Bus_Ticketing_System_1
             while (dr.Read())
             {
                 i = i + 1;
-                busdetailsdgv.Rows.Add(i.ToString(), dr["busno"].ToString(), dr["busname"].ToString(), dr["chooseroute"].ToString(), dr["bustype"].ToString(), dr["noofseats"].ToString(), dr["Model"].ToString(), dr["Driver"].ToString(), dr["conductor"].ToString(),dr["busstatus"].ToString());
+                busdetailsdgv.Rows.Add(i.ToString(), dr["busno"].ToString(), dr["busname"].ToString(), dr["chooseroute"].ToString(), dr["departuredate"].ToString(), dr["departuretime"].ToString(), dr["arrivaltime"].ToString(), dr["bustype"].ToString(), dr["noofseats"].ToString(), dr["Model"].ToString(), dr["Driver"].ToString(), dr["conductor"].ToString(),dr["busstatus"].ToString());
             }
             dr.Close();
             con.Close();
@@ -513,7 +513,7 @@ namespace Bus_Ticketing_System_1
             while (dr.Read())
             {
                 i = i + 1;
-                brcdgv.Rows.Add(i.ToString(), dr["routeid"].ToString(), dr["choosestation"].ToString(), dr["distancefromsource"].ToString(), dr["arrivaltime"].ToString(), dr["departuretime"].ToString());
+                brcdgv.Rows.Add(i.ToString(), dr["routeid"].ToString(), dr["choosestation"].ToString(), dr["sourcestation"].ToString(), dr["destinationstation"].ToString(), dr["distancefromsource"].ToString());
             }
             dr.Close();
             con.Close();
@@ -635,6 +635,7 @@ namespace Bus_Ticketing_System_1
                         con.Close();
                         MessageBox.Show("Record Inserted Sucessfully");
                         displaystation();
+                    comb();
                 }
             }
             catch
@@ -660,6 +661,7 @@ namespace Bus_Ticketing_System_1
                 con.Close();
                 MessageBox.Show("Record updated Sucessfully");
                 displaystation();
+                comb();
             }
         }
 
@@ -673,6 +675,7 @@ namespace Bus_Ticketing_System_1
             con.Close();
             MessageBox.Show("Record deleted Sucessfully");
             displaystation();
+            comb();
         }
 
 
@@ -755,7 +758,10 @@ namespace Bus_Ticketing_System_1
                         cmd.ExecuteNonQuery();
                         con.Close();
                         MessageBox.Show("Record Inserted Sucessfully");
-                        displayemployee();
+                    
+                    displayemployee();
+                    combb(); 
+                    combbb();
                 }
                 
             }
@@ -788,6 +794,8 @@ namespace Bus_Ticketing_System_1
                 con.Close();
                 MessageBox.Show("Record updated Sucessfully");
                 displayemployee();
+                combb();
+                combbb();
             }
         }
 
@@ -875,97 +883,131 @@ namespace Bus_Ticketing_System_1
             passengerphonenumber.Text = "";
 
         }
+        //public void Print(Panel pnl)
+        //{
+        //    PrinterSettings ps = new PrinterSettings();
 
-        public void Print(Panel pnl)
-        {
-            PrinterSettings ps = new PrinterSettings();
+        //    panel1 = pnl;
+        //    getprintarea(pnl);
+        //    ////Code to print bill
+        //    //DGVPrinter printer = new DGVPrinter();
+        //    //printer.Title = "\r\n\r\nSudur Paschim Yatayat";
+        //    //printer.SubTitle = "Sudur Paschim Province (Province 7)\r\nBus Park, Dhangadhi";
+        //    //// printer.SubTitle = "Bus Park, Dhangadhi";
+        //    //printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+        //    //printer.PageNumbers = true;
+        //    //printer.PageNumberInHeader = false;
+        //    //printer.PorportionalColumns = true;
+        //    //printer.HeaderCellAlignment = StringAlignment.Near;
+        //    //printer.Footer = "Thank You For Travelling...";
+        //    //printer.FooterSpacing = 15;
+        //    //printer.PrintDataGridView(searchticketdgv);
 
-            panel1 = pnl;
-            getprintarea(pnl);
-            ////Code to print bill
-            //DGVPrinter printer = new DGVPrinter();
-            //printer.Title = "\r\n\r\nSudur Paschim Yatayat";
-            //printer.SubTitle = "Sudur Paschim Province (Province 7)\r\nBus Park, Dhangadhi";
-            //// printer.SubTitle = "Bus Park, Dhangadhi";
-            //printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
-            //printer.PageNumbers = true;
-            //printer.PageNumberInHeader = false;
-            //printer.PorportionalColumns = true;
-            //printer.HeaderCellAlignment = StringAlignment.Near;
-            //printer.Footer = "Thank You For Travelling...";
-            //printer.FooterSpacing = 15;
-            //printer.PrintDataGridView(searchticketdgv);
+        //    prntprvw.Document = pntdoc;
+        //    pntdoc.PrintPage += new PrintPageEventHandler(pntdoc_printpage);
+        //    prntprvw.ShowDialog();
+        //}
 
-            prntprvw.Document = pntdoc;
-            pntdoc.PrintPage += new PrintPageEventHandler(pntdoc_printpage);
-            prntprvw.ShowDialog();
-        }
+        //public void pntdoc_printpage(object sender, PrintPageEventArgs e)
+        //{
+        //    Rectangle pagearea = e.PageBounds;
 
-        public void pntdoc_printpage(object sender,PrintPageEventArgs e)
-        {
-            Rectangle pagearea = e.PageBounds;
-            
-            e.Graphics.DrawString("\r\nSudur Paschim Yatayat\n\r", new Font("Times New Roman", 18, FontStyle.Bold), Brushes.Black, new Point(300, 10));
-            e.Graphics.DrawString("\r\nSudur Paschim Province (Province 7)\r\n\tBus Park, Dhangadhi \n\r", new Font("Times New Roman", 14, FontStyle.Bold), Brushes.Black, new Point(265,50));
+        //    e.Graphics.DrawString("\r\nSudur Paschim Yatayat\n\r", new Font("Times New Roman", 18, FontStyle.Bold), Brushes.Black, new Point(300, 10));
+        //    e.Graphics.DrawString("\r\nSudur Paschim Province (Province 7)\r\n\tBus Park, Dhangadhi \n\r", new Font("Times New Roman", 14, FontStyle.Bold), Brushes.Black, new Point(265, 50));
 
-            e.Graphics.DrawString("\r\nTicket Details:-\n\r", new Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new Point(100, 120));
+        //    e.Graphics.DrawString("\r\nTicket Details:-\n\r", new Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new Point(100, 120));
 
-            e.Graphics.DrawString("\r\n\n\nTicket No:- "+ticketnotxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 130));
-            e.Graphics.DrawString("\r\n\n\nBus No:- " + busnocomboBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 160));
-            e.Graphics.DrawString("\r\n\n\nSource Station:- " + sourcestationcomboBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 190));
-            //e.Graphics.DrawImage(memorying, (pagearea.Width ) - (this.groupBox2.Width),this.groupBox2.Location.Y );
-            e.Graphics.DrawString("\r\n\n\nDestination Station:- " + destinationstationcombobox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 220));
-            e.Graphics.DrawString("\r\n\n\nDistance From Source:- " + distancefromsourcetextBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 250));
-            e.Graphics.DrawString("\r\n\n\nChoose Route:- " + crcomboBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 280));
-            e.Graphics.DrawString("\r\n\n\nNo of Passengers:- " + noptextBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 130));
-            e.Graphics.DrawString("\r\n\n\nIssued Date:- " + dateTimePicker1.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 160));
-            e.Graphics.DrawString("\r\n\n\nDeparture Date:- " + dateTimePicker2.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 190));
-            e.Graphics.DrawString("\r\n\n\nDeparture Time:- " + dateTimePicker4.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 220));
-            e.Graphics.DrawString("\r\n\n\nArrival Time:- " + dateTimePicker3.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 250));
-            e.Graphics.DrawString("\r\n\n\nTotal Fare Cost:- " + totalfarecosttxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 280));
+        //    e.Graphics.DrawString("\r\n\n\nTicket No:- " + ticketnotxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 130));
+        //    e.Graphics.DrawString("\r\n\n\nBus No:- " + busnocomboBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 160));
+        //    e.Graphics.DrawString("\r\n\n\nSource Station:- " + sourcestationcomboBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 190));
+        //    //e.Graphics.DrawImage(memorying, (pagearea.Width ) - (this.groupBox2.Width),this.groupBox2.Location.Y );
+        //    e.Graphics.DrawString("\r\n\n\nDestination Station:- " + destinationstationcombobox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 220));
+        //    e.Graphics.DrawString("\r\n\n\nDistance From Source:- " + distancefromsourcetextBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 250));
+        //    e.Graphics.DrawString("\r\n\n\nChoose Route:- " + crcomboBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 280));
+        //    e.Graphics.DrawString("\r\n\n\nNo of Passengers:- " + noptextBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 130));
+        //    e.Graphics.DrawString("\r\n\n\nIssued Date:- " + dateTimePicker1.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 160));
+        //    e.Graphics.DrawString("\r\n\n\nDeparture Date:- " + dateTimePicker2.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 190));
+        //    e.Graphics.DrawString("\r\n\n\nDeparture Time:- " + dateTimePicker4.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 220));
+        //    e.Graphics.DrawString("\r\n\n\nArrival Time:- " + dateTimePicker3.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 250));
+        //    e.Graphics.DrawString("\r\n\n\nTotal Fare Cost:- " + totalfarecosttxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 280));
 
-            e.Graphics.DrawString("\r\nPassenger Details:-\n\r", new Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new Point(100, 350));
+        //    e.Graphics.DrawString("\r\nPassenger Details:-\n\r", new Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new Point(100, 350));
 
-            e.Graphics.DrawString("\r\n\n\nName:- " + passengernametxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 360));
-            e.Graphics.DrawString("\r\n\n\nAge:- " + passengeragetxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 390));
-            e.Graphics.DrawString("\r\n\n\nGender:- " + passengergendercomboBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 420));
-            e.Graphics.DrawString("\r\n\n\nAddress:- " + passengeraddresstxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 360));
-            e.Graphics.DrawString("\r\n\n\nPhone No:- " + passengerphonenumber.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 390));
+        //    e.Graphics.DrawString("\r\n\n\nName:- " + passengernametxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 360));
+        //    e.Graphics.DrawString("\r\n\n\nAge:- " + passengeragetxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 390));
+        //    e.Graphics.DrawString("\r\n\n\nGender:- " + passengergendercomboBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 420));
+        //    e.Graphics.DrawString("\r\n\n\nAddress:- " + passengeraddresstxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 360));
+        //    e.Graphics.DrawString("\r\n\n\nPhone No:- " + passengerphonenumber.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 390));
 
-            e.Graphics.DrawString("\r\n\n\nThank You For Travelling...\n    Have a Safe Journey.", new Font("Times New Roman", 14, FontStyle.Bold), Brushes.Black, new Point(500, 470));
+        //    e.Graphics.DrawString("\r\n\n\nThank You For Travelling...\n    Have a Safe Journey.", new Font("Times New Roman", 14, FontStyle.Bold), Brushes.Black, new Point(500, 470));
 
-            //  e.Graphics.DrawImage(memorying,(pagearea.Width/2)-(this.panel1.Width/2),this.panel1.Location.Y);
-        }
+        //    //  e.Graphics.DrawImage(memorying,(pagearea.Width/2)-(this.panel1.Width/2),this.panel1.Location.Y);
+        //}
 
-        Bitmap memorying;
+        //Bitmap memorying;
 
-        public void getprintarea(Panel pnl)
-        {
-            memorying = new Bitmap(pnl.Width, pnl.Height);
-            pnl.DrawToBitmap(memorying, new Rectangle(1000, 1000,pnl.Width,pnl.Height));
-        }
+        //public void getprintarea(Panel pnl)
+        //{
+        //    memorying = new Bitmap(pnl.Width, pnl.Height);
+        //    pnl.DrawToBitmap(memorying, new Rectangle(1000, 1000, pnl.Width, pnl.Height));
+        //}
 
         private void printticketbtn_Click(object sender, EventArgs e)
         {
-            //printPreviewDialog1.Document = printDocument;
-            //printPreviewDialog1.ShowDialog();
-
-           
 
 
-            ////Code to print bill
-            //DGVPrinter printer = new DGVPrinter();
-            //printer.Title = "\r\n\r\nSudur Paschim Yatayat";
-            //printer.SubTitle = "Sudur Paschim Province (Province 7)\r\nBus Park, Dhangadhi";
-            //// printer.SubTitle = "Bus Park, Dhangadhi";
-            //printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
-            //printer.PageNumbers = true;
-            //printer.PageNumberInHeader = false;
-            //printer.PorportionalColumns = true;
-            //printer.HeaderCellAlignment = StringAlignment.Near;
-            //printer.Footer = "Thank You For Travelling...";
-            //printer.FooterSpacing = 15;
-            //printer.PrintDataGridView(searchticketdgv);
+            if (
+                     ticketnotxtbox.Text == "" ||
+                         busnocomboBox.Text == "" ||
+                         sourcestationcomboBox.Text == "" ||
+                         destinationstationcombobox.Text == "" ||
+                         distancefromsourcetextBox.Text == "" ||
+                         crcomboBox.Text == "" ||
+                         noptextBox.Text == "" ||
+                         dateTimePicker1.Text == "" ||
+                         dateTimePicker2.Text == "" ||
+                         dateTimePicker4.Text == "" ||
+                         dateTimePicker3.Text == "" ||
+                         totalfarecosttxtbox.Text == "" ||
+                         passengernametxtbox.Text == "" ||
+                         passengeragetxtbox.Text == "" ||
+                         passengergendercomboBox.Text == "" ||
+                         passengeraddresstxtbox.Text == "" ||
+                         passengerphonenumber.Text == ""
+                         )
+            {
+                MessageBox.Show("Enter the Empty Fields First.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                //fetching no of seat
+
+                //UPDATING BUS SEAT 
+                int t = int.Parse(textBox1.Text);
+                int s = int.Parse(noptextBox.Text);
+                //int t = int.Parse(tot);
+                t = t - s;
+                //MessageBox.Show(t.ToString());
+                con.Open();
+                SqlCommand cmm = con.CreateCommand();
+                cmm.CommandType = CommandType.Text;
+                cmm.CommandText = "update busdetails set  noofseats='" + t + "' where busno='" + busnocomboBox.Text + "' ";
+                cmm.ExecuteNonQuery();
+                con.Close();
+                if (t == 0)
+                {
+                    MessageBox.Show("Ticket Reservation is Full./n No more Ticket Entry is Possible ");
+
+
+
+                }
+            }
+
+            
+
+
+
+
 
             try
             {
@@ -999,7 +1041,7 @@ namespace Bus_Ticketing_System_1
                         passengerphonenumber.Text == "" 
                         )
                 {
-                    MessageBox.Show("Enter the Empty Fields First.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);                       
+                   // MessageBox.Show("Enter the Empty Fields First.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);                       
                 }
 
                 else
@@ -1028,9 +1070,12 @@ namespace Bus_Ticketing_System_1
                         cmd.ExecuteNonQuery();
                         con.Close();
                         MessageBox.Show("Record Inserted Sucessfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    printPreviewDialog1.ShowDialog();
+                    refreshticket();
                         displayticket();
-                        Print(this.panel1);
+                    tic();
+                      
+                       // Print(this.panel1);
                     }
                 }
 
@@ -1090,6 +1135,9 @@ namespace Bus_Ticketing_System_1
             busnotxtbox.Text = "";
             busnametxtbox.Text = "";
             chooseroutecomboBox.Text = "";
+            dateTimePicker5.Text = "";
+            arrivaltimetxtbox.Text = "";
+            departuretimetxtbox.Text = "";
             bustypecomboBox.Text = "";
             noofseatstxtbox.Text = "";
             busmodeltxtbox.Text = "";
@@ -1116,6 +1164,9 @@ namespace Bus_Ticketing_System_1
                 else if (busnotxtbox.Text == "" ||
                         busnametxtbox.Text == "" ||
                         chooseroutecomboBox.Text == "" ||
+                        dateTimePicker5.Text == "" ||
+                        arrivaltimetxtbox.Text == "" ||
+                        departuretimetxtbox.Text == ""||
                         bustypecomboBox.Text == "" ||
                         noofseatstxtbox.Text == "" ||
                         busmodeltxtbox.Text == "" ||
@@ -1133,7 +1184,7 @@ namespace Bus_Ticketing_System_1
                     con.Open();
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "insert into busdetails values('" + busnotxtbox.Text + "','" + busnametxtbox.Text + "','" + chooseroutecomboBox.Text + "',  '" + bustypecomboBox.Text + "','" + noofseatstxtbox.Text + "',  '" + busmodeltxtbox.Text + "',  '" + drivercomboBox.Text + "',  '" + conductorcomboBox.Text + "','" + bscomboBox.Text + "')";
+                    cmd.CommandText = "insert into busdetails values('" + busnotxtbox.Text + "','" + busnametxtbox.Text + "','" + chooseroutecomboBox.Text + "','" + dateTimePicker5.Text + "','" + departuretimetxtbox.Text + "',  '" + arrivaltimetxtbox.Text + "',  '" + bustypecomboBox.Text + "','" + noofseatstxtbox.Text + "',  '" + busmodeltxtbox.Text + "',  '" + drivercomboBox.Text + "',  '" + conductorcomboBox.Text + "','" + bscomboBox.Text + "')";
                     cmd.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Record Inserted Sucessfully");
@@ -1159,6 +1210,9 @@ namespace Bus_Ticketing_System_1
              if (busnotxtbox.Text == "" ||
                         busnametxtbox.Text == "" ||
                         chooseroutecomboBox.Text == "" ||
+                        dateTimePicker5.Text == "" ||
+                        arrivaltimetxtbox.Text == "" ||
+                        departuretimetxtbox.Text == ""||
                         bustypecomboBox.Text == "" ||
                         noofseatstxtbox.Text == "" ||
                         busmodeltxtbox.Text == "" ||
@@ -1175,7 +1229,7 @@ namespace Bus_Ticketing_System_1
 
                 cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update busdetails set busno='" + busnotxtbox.Text + "',busname='" + busnametxtbox.Text + "', chooseroute='" + chooseroutecomboBox.Text + "', bustype='" + bustypecomboBox.Text + "', noofseats='" + noofseatstxtbox.Text + "',Model='" + busmodeltxtbox.Text + "', Driver='" + drivercomboBox.Text + "',conductor='" + conductorcomboBox.Text + "',busstatus='"+bscomboBox.Text+"' where busno='" + busnotxtbox.Text + "'";
+                cmd.CommandText = "update busdetails set busno='" + busnotxtbox.Text + "',busname='" + busnametxtbox.Text + "', chooseroute='" + chooseroutecomboBox.Text + "',departuredate='"+dateTimePicker5.Text+"',departuretime='" + departuretimetxtbox.Text + "', arrivaltime='" + arrivaltimetxtbox.Text + "', bustype='" + bustypecomboBox.Text + "', noofseats='" + noofseatstxtbox.Text + "',Model='" + busmodeltxtbox.Text + "', Driver='" + drivercomboBox.Text + "',conductor='" + conductorcomboBox.Text + "',busstatus='"+bscomboBox.Text+"' where busno='" + busnotxtbox.Text + "'";
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Record updated Sucessfully");
@@ -1212,13 +1266,15 @@ namespace Bus_Ticketing_System_1
                     busnotxtbox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[1].Value.ToString();
                     busnametxtbox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[2].Value.ToString();
                     chooseroutecomboBox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    bustypecomboBox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    noofseatstxtbox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[5].Value.ToString();
-                    busmodeltxtbox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[6].Value.ToString();
-                    drivercomboBox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[7].Value.ToString();
-                    conductorcomboBox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[8].Value.ToString();
-                    bscomboBox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[9].Value.ToString();
-                    
+                    dateTimePicker5.Text = busdetailsdgv.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    departuretimetxtbox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    arrivaltimetxtbox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[6].Value.ToString();                    
+                    bustypecomboBox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    noofseatstxtbox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[8].Value.ToString();
+                    busmodeltxtbox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[9].Value.ToString();
+                    drivercomboBox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[10].Value.ToString();
+                    conductorcomboBox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[11].Value.ToString();
+                    bscomboBox.Text = busdetailsdgv.Rows[e.RowIndex].Cells[12].Value.ToString();                    
                 }
 
             }
@@ -1233,11 +1289,10 @@ namespace Bus_Ticketing_System_1
         {
             enterrouteidtxtbox.Text = "";
             choosestationcomboBox.Text = "";
-            distancefromsourcetxtbox.Text = "";
-            arrivaltimetxtbox.Text = "";
-            departuretimetxtbox.Text = "";
-
-        }
+            comboBox1.Text = "";
+            comboBox2.Text = "";
+            distancefromsourcetxtbox.Text = "";            
+            }
 
         private void addroutebtn_Click(object sender, EventArgs e)
         {
@@ -1253,9 +1308,9 @@ namespace Bus_Ticketing_System_1
                 }
                 else if(enterrouteidtxtbox.Text =="" ||
                         choosestationcomboBox.Text == "" ||
-                        distancefromsourcetxtbox.Text == "" ||
-                        arrivaltimetxtbox.Text == "" ||
-                        departuretimetxtbox.Text == "" 
+                        comboBox1.Text == "" ||
+                        comboBox2.Text == "" ||
+                        distancefromsourcetxtbox.Text == ""                        
                         )
                 {
                     MessageBox.Show("Enter the Empty Fields First.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1267,11 +1322,13 @@ namespace Bus_Ticketing_System_1
                         con.Open();
                         SqlCommand cmd = con.CreateCommand();
                         cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "insert into busoute values('" + enterrouteidtxtbox.Text + "','" + choosestationcomboBox.Text + "','" + distancefromsourcetxtbox.Text + "',  '" + arrivaltimetxtbox.Text + "','" + departuretimetxtbox.Text + "')";
+                        cmd.CommandText = "insert into busoute values('" + enterrouteidtxtbox.Text + "','" + choosestationcomboBox.Text + "','" + comboBox1.Text + "','" + comboBox2.Text + "','" + distancefromsourcetxtbox.Text + "')";
                         cmd.ExecuteNonQuery();
                         con.Close();
                         MessageBox.Show("Record Inserted Sucessfully");
                         displayroutecreator();
+                    refreshbusroutecreator();
+                    comb1();
 
                 }
 
@@ -1287,9 +1344,9 @@ namespace Bus_Ticketing_System_1
         {
             if (enterrouteidtxtbox.Text == "" ||
                         choosestationcomboBox.Text == "" ||
-                        distancefromsourcetxtbox.Text == "" ||
-                        arrivaltimetxtbox.Text == "" ||
-                        departuretimetxtbox.Text == ""
+                        comboBox1.Text == "" ||
+                        comboBox2.Text == "" ||
+                        distancefromsourcetxtbox.Text == ""                        
                         )
             {
                 MessageBox.Show("Enter the Empty Fields First.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1301,11 +1358,12 @@ namespace Bus_Ticketing_System_1
 
                 cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update busoute set routeid='" + enterrouteidtxtbox.Text + "',choosestation='" + choosestationcomboBox.Text + "',distancefromsource='" + distancefromsourcetxtbox.Text + "', arrivaltime='" + arrivaltimetxtbox.Text + "',departuretime='" + departuretimetxtbox.Text + "' where routeid='" + enterrouteidtxtbox.Text + "'";
+                cmd.CommandText = "update busoute set routeid='" + enterrouteidtxtbox.Text + "',choosestation='" + choosestationcomboBox.Text + "',sourcestation='" + comboBox1.Text + "',destinationstation='" + comboBox2.Text + "',distancefromsource='" + distancefromsourcetxtbox.Text + "' where routeid='" + enterrouteidtxtbox.Text + "'";
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Record updated Sucessfully");
                 displayroutecreator();
+                comb1();
             }
            
         }
@@ -1321,6 +1379,7 @@ namespace Bus_Ticketing_System_1
             con.Close();
             MessageBox.Show("Record deleted Sucessfully");
             displayroutecreator();
+            comb1();
         }
 
 
@@ -1515,6 +1574,8 @@ namespace Bus_Ticketing_System_1
                 MessageBox.Show("Record updated Sucessfully");
                 displayticket();
                 refreshticket();
+                tic();
+
             }
            
         }
@@ -1530,6 +1591,7 @@ namespace Bus_Ticketing_System_1
             con.Close();
             MessageBox.Show("Record deleted Sucessfully");
             displayticket();
+            tic();
         }
 
         private void crcomboBox_Click(object sender, EventArgs e)
@@ -1589,23 +1651,25 @@ namespace Bus_Ticketing_System_1
 
         private void mainadmin_Load(object sender, EventArgs e)
         {
-            
+            combb();
+            combbb();
             if (role != "Administrator")
             {
                 tabControl1.TabPages.Remove(tabPage5);
                 
             }
-            dateTimePicker1.MinDate= DateTime.Now;
-            dateTimePicker1.MaxDate = DateTime.Now.AddDays(0);
-            dateTimePicker2.MinDate = DateTime.Now;
-            dateTimePicker2.MaxDate = DateTime.Now.AddDays(10);
-            dateTimePicker4.MinDate = DateTime.Now;
-            dateTimePicker4.MaxDate = DateTime.Now.AddDays(10);
-            dateTimePicker3.MinDate = DateTime.Now;
-            dateTimePicker3.MaxDate = DateTime.Now.AddDays(10); 
-            arrivaltimetxtbox.MinDate = DateTime.Now;
+            dateTimePicker1.Value = DateTime.Today;
+
+
+           
+           
+          //  dateTimePicker4.MinDate = DateTime.Now;
+           // dateTimePicker4.MaxDate = DateTime.Now.AddDays(10);
+            //dateTimePicker3.MinDate = DateTime.Now;
+            //dateTimePicker3.MaxDate = DateTime.Now.AddDays(10); 
+            arrivaltimetxtbox.MinDate = DateTime.Today;
             arrivaltimetxtbox.MaxDate = DateTime.Now.AddDays(10);
-            departuretimetxtbox.MinDate = DateTime.Now;
+            departuretimetxtbox.MinDate = DateTime.Today;
             departuretimetxtbox.MaxDate = DateTime.Now.AddDays(10);
         }
 
@@ -1863,10 +1927,9 @@ namespace Bus_Ticketing_System_1
 
                     enterrouteidtxtbox.Text = brcdgv.Rows[e.RowIndex].Cells[1].Value.ToString();
                     choosestationcomboBox.Text = brcdgv.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    distancefromsourcetxtbox.Text = brcdgv.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    arrivaltimetxtbox.Text = brcdgv.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    departuretimetxtbox.Text = brcdgv.Rows[e.RowIndex].Cells[5].Value.ToString();
-
+                    comboBox1.Text = brcdgv.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    comboBox2.Text = brcdgv.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    distancefromsourcetxtbox.Text = brcdgv.Rows[e.RowIndex].Cells[5].Value.ToString();
                 }
 
             }
@@ -1878,8 +1941,51 @@ namespace Bus_Ticketing_System_1
 
         private void busnocomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            // tic();
+
+            if (busnocomboBox.Text == "" || string.IsNullOrEmpty(busnocomboBox.Text) || string.IsNullOrWhiteSpace(busnocomboBox.Text))
+            {
+                errorProviderbusno.Icon = Properties.Resources.close;
+                errorProviderbusno.SetError(this.busnocomboBox, "Select Bus No.");
+            }
+            else
+            {
+                errorProviderbusno.Icon = Properties.Resources.ok;
+                errorProviderbusno.SetError(this.busnocomboBox, "Ok.");
+            }
+
+            //displaybusdetails();
+            //displayroutecreator();
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTS1;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "select * from busdetails,busoute where busno ='" + busnocomboBox.Text + "' and [dbo].[busdetails].chooseroute=[dbo].[busoute].choosestation";
+            cmd.Connection = con;
+            SqlDataReader rd = cmd.ExecuteReader();
+            while (rd.Read())
+            {
+                string route = (string)rd["chooseroute"].ToString();
+                crcomboBox.Text = route;
+
+                string sourcestation = (string)rd["sourcestation"].ToString();
+                sourcestationcomboBox.Text = sourcestation;
+
+                string destinationstation = (string)rd["destinationstation"].ToString();
+                destinationstationcombobox.Text = destinationstation;
+
+                string distance = (string)rd["distancefromsource"].ToString();
+                distancefromsourcetextBox.Text = distance;
+
+                string dt = (string)rd["departuretime"].ToString();
+                  dateTimePicker4.Text = dt.ToString();
+
+                string at = (string)rd["arrivaltime"].ToString();
+                dateTimePicker3.Text = at;
+
+                dateTimePicker2.Text = (string)rd["departuredate"].ToString();
+                noptextBox.Text = "1";
+                textBox1.Text = (string)rd["noofseats"].ToString();
+            }
+            con.Close();
 
         }
 
@@ -1889,6 +1995,17 @@ namespace Bus_Ticketing_System_1
             address();
             ds();
             ss();
+
+            if (sourcestationcomboBox.Text == "" || string.IsNullOrEmpty(sourcestationcomboBox.Text) || string.IsNullOrWhiteSpace(sourcestationcomboBox.Text))
+            {
+                errorProvidersources.Icon = Properties.Resources.close;
+                errorProvidersources.SetError(this.sourcestationcomboBox, "Select Source Station.");
+            }
+            else
+            {
+                errorProvidersources.Icon = Properties.Resources.ok;
+                errorProvidersources.SetError(this.sourcestationcomboBox, "Ok.");
+            }
         }
 
         private void destinationstationcombobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1897,31 +2014,52 @@ namespace Bus_Ticketing_System_1
             address();
             ds();
             ss();
+            if (destinationstationcombobox.Text == "" || string.IsNullOrEmpty(destinationstationcombobox.Text) || string.IsNullOrWhiteSpace(destinationstationcombobox.Text))
+            {
+                errorProviderdest.Icon = Properties.Resources.close;
+                errorProviderdest.SetError(this.destinationstationcombobox, "Select Destination Station.");
+            }
+            else
+            {
+                errorProviderdest.Icon = Properties.Resources.ok;
+                errorProviderdest.SetError(this.destinationstationcombobox, "Ok.");
+            }
         }
 
         private void crcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (crcomboBox.Text == "" || string.IsNullOrEmpty(crcomboBox.Text) || string.IsNullOrWhiteSpace(crcomboBox.Text))
             {
-                if (con.State == ConnectionState.Closed)
-                    con.Open();
-                SqlCommand ccm = new SqlCommand("select  choosestation from busoute", con);
-
-                SqlDataReader dd = ccm.ExecuteReader();
-
-                crcomboBox.Items.Clear();
-                while (dd.Read())
-                {
-                    crcomboBox.Items.Add(dd.GetValue(0).ToString());
-                }
-                dd.Close();
-                con.Close();
+                errorRoute.Icon = Properties.Resources.close;
+                errorRoute.SetError(this.crcomboBox, "Select Route Name.");
             }
-            catch (IOException)
+            else
             {
-                crcomboBox.Items.Clear();
 
+                errorRoute.Icon = Properties.Resources.ok;
+                errorRoute.SetError(this.crcomboBox, "Ok.");
             }
+            //try
+            //{
+            //    if (con.State == ConnectionState.Closed)
+            //        con.Open();
+            //    SqlCommand ccm = new SqlCommand("select  choosestation from busoute", con);
+
+            //    SqlDataReader dd = ccm.ExecuteReader();
+
+            //    crcomboBox.Items.Clear();
+            //    while (dd.Read())
+            //    {
+            //        crcomboBox.Items.Add(dd.GetValue(0).ToString());
+            //    }
+            //    dd.Close();
+            //    con.Close();
+            //}
+            //catch (IOException)
+            //{
+            //    crcomboBox.Items.Clear();
+
+            //}
             //cr();
             //comb1();
         }
@@ -1932,6 +2070,16 @@ namespace Bus_Ticketing_System_1
             address();
             ss();
             ds();
+            if (passengeraddresstxtbox.Text == "" || string.IsNullOrEmpty(passengeraddresstxtbox.Text) || string.IsNullOrWhiteSpace(passengeraddresstxtbox.Text))
+            {
+                errorProvideraddress.Icon = Properties.Resources.close;
+                errorProvideraddress.SetError(this.passengeraddresstxtbox, "Enter Passenger's Address.");
+            }
+            else
+            {
+                errorProvideraddress.Icon = Properties.Resources.ok;
+                errorProvideraddress.SetError(this.passengeraddresstxtbox, "Ok.");
+            }
         }
 
         private void chooseroutecomboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1943,11 +2091,45 @@ namespace Bus_Ticketing_System_1
         private void drivercomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             combb();
+
+            //SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1LF5S1M;Initial Catalog=BTS1;Integrated Security=True");
+            //con.Open();
+            //SqlCommand cmd = new SqlCommand();
+            //cmd.CommandText = "select employeename from EmployeeTBother where employeename ='" + employeenametxtbox.Text + "' ";
+            //cmd.Connection = con;
+            //SqlDataReader rd = cmd.ExecuteReader();
+            //while (rd.Read())
+            //{
+            //    string driver = (string)rd["employeename"].ToString();
+            //    drivercomboBox.Text = driver;
+
+
+            //}
+            //con.Close();
         }
 
         private void conductorcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             combbb();
+            //try
+            //{
+            //    con.Open();
+            //    SqlCommand ccm = new SqlCommand("select employeename from EmployeeTBother where role='Conductor'", con);
+
+            //    SqlDataReader dd = ccm.ExecuteReader();
+
+            //    conductorcomboBox.Items.Clear();
+            //    while (dd.Read())
+            //    {
+            //        conductorcomboBox.Items.Add(dd.GetValue(0).ToString());
+            //    }
+            //    dd.Close();
+            //    con.Close();
+            //}
+            //catch (IOException)
+            //{
+            //    conductorcomboBox.Items.Clear();
+            //}
         }
 
         private void stationaddresstxtbox_SelectedIndexChanged(object sender, EventArgs e)
@@ -2704,14 +2886,440 @@ namespace Bus_Ticketing_System_1
 
         private void busnocomboBox_Enter(object sender, EventArgs e)
         {
-            tic();
+            //tic();
         }
 
-      
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.Text == "" || string.IsNullOrEmpty(comboBox1.Text) || string.IsNullOrWhiteSpace(comboBox1.Text))
+            {
+                errorProviderss.Icon = Properties.Resources.close;
+                errorProviderss.SetError(this.comboBox1, "Enter Source Station Name.");
+            }
+            else
+            {
+                errorProviderss.Icon = Properties.Resources.ok;
+                errorProviderss.SetError(this.comboBox1, "Ok.");
+            }
+        }
+
+        private void comboBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (comboBox1.Text == "" || string.IsNullOrEmpty(comboBox1.Text) || string.IsNullOrWhiteSpace(comboBox1.Text))
+            {
+                errorProviderss.Icon = Properties.Resources.close;
+                errorProviderss.SetError(this.comboBox1, "Enter Source Station Name.");
+            }
+            else
+            {
+                errorProviderss.Icon = Properties.Resources.ok;
+                errorProviderss.SetError(this.comboBox1, "Ok.");
+            }
+        }
+
+        private void comboBox2_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (comboBox2.Text == "" || string.IsNullOrEmpty(comboBox2.Text) || string.IsNullOrWhiteSpace(comboBox2.Text))
+            {
+                errorProviderds.Icon = Properties.Resources.close;
+                errorProviderds.SetError(this.comboBox2, "Enter Destination Station Name.");
+            }
+            else
+            {
+                errorProviderds.Icon = Properties.Resources.ok;
+                errorProviderds.SetError(this.comboBox2, "Ok.");
+            }
+        }
 
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (ActiveControl is TabControl)
+            {
+                if (System.Convert.ToBoolean(keyData & Keys.Tab | Keys.Control))
+                    return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
 
+        public void OpenFile(OpenFileDialog openFileDialog, TabControl tabControl)
+        {
+            Stream stream = null;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if ((stream = openFileDialog.OpenFile()) != null)
+                {
+                    StreamReader reader = new StreamReader(stream);
+                    string pageName;
+                    while ((pageName = reader.ReadLine()) != null)
+                    {
+                        TabPage newPage = new TabPage(pageName);
+                        newPage.Name = pageName;
+                        //newPage.Controls.Add(CreateGridByFile(pageName));
+                        //newPage.Controls.Add(SetAddButton());
+                        //newPage.Controls.Add(SetDeleteButton());
+                        tabControl.TabPages.Add(newPage);
+                        tabControl.Refresh();
+                    }
+                    reader.Close();
+                }
+            }
+        }
 
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_MouseClick(object sender, MouseEventArgs e)
+        {
+            tic();
+            comb();
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument;
+
+        }
+
+        private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString("\r\nSudur Paschim Yatayat\n\r", new Font("Times New Roman", 18, FontStyle.Bold), Brushes.Black, new Point(300, 10));
+            e.Graphics.DrawString("\r\nSudur Paschim Province (Province 7)\r\n\tBus Park, Dhangadhi \n\r", new Font("Times New Roman", 14, FontStyle.Bold), Brushes.Black, new Point(265, 50));
+
+            e.Graphics.DrawString("\r\nTicket Details:-\n\r", new Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new Point(100, 120));
+
+            e.Graphics.DrawString("\r\n\n\nTicket No:- " + ticketnotxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 130));
+            e.Graphics.DrawString("\r\n\n\nBus No:- " + busnocomboBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 160));
+            e.Graphics.DrawString("\r\n\n\nSource Station:- " + sourcestationcomboBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 190));
+            //e.Graphics.DrawImage(memorying, (pagearea.Width ) - (this.groupBox2.Width),this.groupBox2.Location.Y );
+            e.Graphics.DrawString("\r\n\n\nDestination Station:- " + destinationstationcombobox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 220));
+            e.Graphics.DrawString("\r\n\n\nDistance From Source:- " + distancefromsourcetextBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 250));
+            e.Graphics.DrawString("\r\n\n\nChoose Route:- " + crcomboBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 280));
+            e.Graphics.DrawString("\r\n\n\nNo of Passengers:- " + noptextBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 130));
+            e.Graphics.DrawString("\r\n\n\nIssued Date:- " + dateTimePicker1.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 160));
+            e.Graphics.DrawString("\r\n\n\nDeparture Date:- " + dateTimePicker2.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 190));
+            e.Graphics.DrawString("\r\n\n\nDeparture Time:- " + dateTimePicker4.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 220));
+            e.Graphics.DrawString("\r\n\n\nArrival Time:- " + dateTimePicker3.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 250));
+            e.Graphics.DrawString("\r\n\n\nTotal Fare Cost:- " + totalfarecosttxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 280));
+
+            e.Graphics.DrawString("\r\nPassenger Details:-\n\r", new Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new Point(100, 350));
+
+            e.Graphics.DrawString("\r\n\n\nName:- " + passengernametxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 360));
+            e.Graphics.DrawString("\r\n\n\nAge:- " + passengeragetxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 390));
+            e.Graphics.DrawString("\r\n\n\nGender:- " + passengergendercomboBox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(100, 420));
+            e.Graphics.DrawString("\r\n\n\nAddress:- " + passengeraddresstxtbox.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 360));
+            e.Graphics.DrawString("\r\n\n\nPhone No:- " + passengerphonenumber.Text, new Font("Times New Roman", 13, FontStyle.Bold), Brushes.Black, new Point(500, 390));
+
+            e.Graphics.DrawString("\r\n\n\nThank You For Travelling...\n    Have a Safe Journey.", new Font("Times New Roman", 14, FontStyle.Bold), Brushes.Black, new Point(500, 470));
+
+        }
+
+        private void ticketnotxtbox_TextChanged(object sender, EventArgs e)
+        {
+            if (ticketnotxtbox.Text == "" || string.IsNullOrEmpty(ticketnotxtbox.Text) || string.IsNullOrWhiteSpace(ticketnotxtbox.Text))
+            {
+                errorProviderticno.Icon = Properties.Resources.close;
+                errorProviderticno.SetError(this.ticketnotxtbox, "Enter Ticket No.");
+            }
+            else
+            {
+                errorProviderticno.Icon = Properties.Resources.ok;
+                errorProviderticno.SetError(this.ticketnotxtbox, "Ok.");
+            }
+        }
+
+        private void ticketnotxtbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                errorProviderticno.SetError(this.ticketnotxtbox, "Enter Numbers Only.");
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox2.Text == "" || string.IsNullOrEmpty(comboBox2.Text) || string.IsNullOrWhiteSpace(comboBox2.Text))
+            {
+                errorProviderds.Icon = Properties.Resources.close;
+                errorProviderds.SetError(this.comboBox2, "Enter Destination Station Name.");
+            }
+            else
+            {
+                errorProviderds.Icon = Properties.Resources.ok;
+                errorProviderds.SetError(this.comboBox2, "Ok.");
+            }
+        }
+
+        private void distancefromsourcetxtbox_TextChanged(object sender, EventArgs e)
+        {
+            if (distancefromsourcetxtbox.Text == "" || string.IsNullOrEmpty(distancefromsourcetxtbox.Text) || string.IsNullOrWhiteSpace(distancefromsourcetxtbox.Text))
+            {
+                brcdfs.Icon = Properties.Resources.close;
+                brcdfs.SetError(this.distancefromsourcetxtbox, "Enter Source Station Name.");
+            }
+            else
+            {
+                brcdfs.Icon = Properties.Resources.ok;
+                brcdfs.SetError(this.distancefromsourcetxtbox, "Ok.");
+            }
+        }
+
+        private void distancefromsourcetextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                brcdfsd.SetError(this.distancefromsourcetextBox, "Enter Numbers Only.");
+            }
+        }
+
+        private void distancefromsourcetextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (distancefromsourcetextBox.Text == "" || string.IsNullOrEmpty(distancefromsourcetextBox.Text) || string.IsNullOrWhiteSpace(distancefromsourcetextBox.Text))
+            {
+                brcdfsd.Icon = Properties.Resources.close;
+                brcdfsd.SetError(this.distancefromsourcetextBox, "Enter Distance from Source.");
+            }
+            else
+            {
+                brcdfsd.Icon = Properties.Resources.ok;
+                brcdfsd.SetError(this.distancefromsourcetextBox, "Ok.");
+            }
+        }
+
+        private void noptextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                errnop.SetError(this.noptextBox, "Enter Numbers Only.");
+            }
+        }
+
+        private void noptextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (noptextBox.Text == "" || string.IsNullOrEmpty(noptextBox.Text) || string.IsNullOrWhiteSpace(noptextBox.Text))
+            {
+                errnop.Icon = Properties.Resources.close;
+                errnop.SetError(this.noptextBox, "Enter Number of Passengers.");
+            }
+            else
+            {
+                errnop.Icon = Properties.Resources.ok;
+                errnop.SetError(this.noptextBox, "Ok.");
+            }
+        }
+
+        private void crcomboBox_KeyUp(object sender, KeyEventArgs e)
+        {
+
+            if (crcomboBox.Text == "" || string.IsNullOrEmpty(crcomboBox.Text) || string.IsNullOrWhiteSpace(crcomboBox.Text))
+            {
+                errorRoute.Icon = Properties.Resources.close;
+                errorRoute.SetError(this.crcomboBox, "Select Route Name.");
+            }
+            else
+            {
+
+                errorRoute.Icon = Properties.Resources.ok;
+                errorRoute.SetError(this.crcomboBox, "Ok.");
+            }
+        }
+
+        private void passengernametxtbox_TextChanged(object sender, EventArgs e)
+        {
+            if (passengernametxtbox.Text == "" || string.IsNullOrEmpty(passengernametxtbox.Text) || string.IsNullOrWhiteSpace(passengernametxtbox.Text))
+            {
+                errorname.Icon = Properties.Resources.close;
+                errorname.SetError(this.passengernametxtbox, "Enter Passenger Name.");
+            }
+            else
+            {
+                errorname.Icon = Properties.Resources.ok;
+                errorname.SetError(this.passengernametxtbox, "Ok.");
+            }
+        }
+
+        private void passengeragetxtbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                errnop.SetError(this.noptextBox, "Enter Numbers Only.");
+            }
+        }
+
+        private void passengeragetxtbox_TextAlignChanged(object sender, EventArgs e)
+        {
+            if (passengeragetxtbox.Text == "" || string.IsNullOrEmpty(passengeragetxtbox.Text) || string.IsNullOrWhiteSpace(passengeragetxtbox.Text))
+            {
+                errorage.Icon = Properties.Resources.close;
+                errorage.SetError(this.passengeragetxtbox, "Enter Passenger's Age.");
+            }
+            else
+            {
+                errorage.Icon = Properties.Resources.ok;
+                errorage.SetError(this.passengeragetxtbox, "Ok.");
+            }
+
+        }
+
+        private void busnametxtbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                bdbn.SetError(this.busnametxtbox, "Enter Characters Only.");
+            }
+            else
+            {
+                bdbn.SetError(this.busnametxtbox, "Ok");
+            }
+        }
+
+        private void passengergendercomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (passengergendercomboBox.Text == "" || string.IsNullOrEmpty(passengergendercomboBox.Text) || string.IsNullOrWhiteSpace(passengergendercomboBox.Text))
+            {
+                errorProvidergender.Icon = Properties.Resources.close;
+                errorProvidergender.SetError(this.passengergendercomboBox, "Select Passenger's Gender.");
+            }
+            else
+            {
+                errorProvidergender.Icon = Properties.Resources.ok;
+                errorProvidergender.SetError(this.passengergendercomboBox, "Ok.");
+            }
+        }
+
+        private void passengernametxtbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                errorname.SetError(this.passengernametxtbox, "Enter Characters Only.");
+            }
+            else
+            {
+                errorname.SetError(this.passengernametxtbox, "Ok");
+            }
+        }
+
+        private void passengerphonenumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                pph.SetError(this.passengerphonenumber, "Enter Numbers Only.");
+            }
+        }
+
+        private void passengerphonenumber_KeyUp(object sender, KeyEventArgs e)
+        {
+            string inputText = passengerphonenumber.Text;
+            if (passengerphonenumber.TextLength == 6 || passengerphonenumber.Text.Length == 10)
+            {
+                pph.SetError(this.passengerphonenumber, "Valid Local Phone No.");
+                pph.Icon = Properties.Resources.ok;
+            }
+            else if (Regex.IsMatch(inputText, @"^(([0-9]{3})(([0-9]{10})))$"))
+            {
+
+                pph.SetError(this.passengerphonenumber, "Mobile No is Valid.");
+                pph.Icon = Properties.Resources.ok;
+            }
+            else if (Regex.IsMatch(inputText, @"^(([0-9]{3})(([0-9]{6})))$"))
+            {
+
+                pph.SetError(this.passengerphonenumber, "Landline No is Valid.");
+                pph.Icon = Properties.Resources.ok;
+            }
+            else
+            {
+                pph.SetError(this.passengerphonenumber, "Enter Mobile No or Land Line Phone No.");
+                pph.Icon = Properties.Resources.close;
+
+            }
+        }
+
+        private void totalfarecosttxtbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                cost.SetError(this.totalfarecosttxtbox, "Enter Numbers Only.");
+            }
+        }
+
+        private void totalfarecosttxtbox_TextChanged(object sender, EventArgs e)
+        {
+            if (totalfarecosttxtbox.Text == "" || string.IsNullOrEmpty(totalfarecosttxtbox.Text) || string.IsNullOrWhiteSpace(totalfarecosttxtbox.Text))
+            {
+                cost.Icon = Properties.Resources.close;
+                cost.SetError(this.totalfarecosttxtbox, "Enter Total Fare Cost.");
+            }
+            else
+            {
+                cost.Icon = Properties.Resources.ok;
+                cost.SetError(this.totalfarecosttxtbox, "Ok.");
+            }
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            refreshticket();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            refreshbusdetails();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            refreshbusroutecreator();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            refresh();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            refreshemployee();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            refreshemployees();
+        }
+
+        private void noptextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (noptextBox.Text == "" || string.IsNullOrEmpty(noptextBox.Text) || string.IsNullOrWhiteSpace(noptextBox.Text))
+            {
+                errnop.Icon = Properties.Resources.close;
+                errnop.SetError(this.noptextBox, "Enter Number of Passengers.");
+            }
+            else
+            {
+                errnop.Icon = Properties.Resources.ok;
+                errnop.SetError(this.noptextBox, "Ok.");
+            }
+        }
+
+        private void drivercomboBox_Click(object sender, EventArgs e)
+        {
+            //combb();
+        }
+
+        private void conductorcomboBox_Click(object sender, EventArgs e)
+        {
+           // combbb();
+        }
 
         //private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         //{

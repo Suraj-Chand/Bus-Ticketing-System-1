@@ -43,6 +43,7 @@ namespace Bus_Ticketing_System_1
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button13 = new System.Windows.Forms.Button();
             this.addemployeedgv = new System.Windows.Forms.DataGridView();
             this.Column48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,8 +95,6 @@ namespace Bus_Ticketing_System_1
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -116,6 +115,7 @@ namespace Bus_Ticketing_System_1
             this.routeidtxtbox = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button10 = new System.Windows.Forms.Button();
             this.addstationdgv = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -140,17 +140,18 @@ namespace Bus_Ticketing_System_1
             this.passengergendercomboBox = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker3 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker2 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker4 = new System.Windows.Forms.TextBox();
             this.busnocomboBox = new System.Windows.Forms.ComboBox();
             this.sourcestationcomboBox = new System.Windows.Forms.ComboBox();
             this.distancefromsourcetextBox = new System.Windows.Forms.TextBox();
             this.destinationstationcombobox = new System.Windows.Forms.ComboBox();
             this.crcomboBox = new System.Windows.Forms.ComboBox();
             this.label39 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label35 = new System.Windows.Forms.Label();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label28 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -184,10 +185,18 @@ namespace Bus_Ticketing_System_1
             this.Column36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button4 = new System.Windows.Forms.Button();
             this.deleteticketbtn = new System.Windows.Forms.Button();
             this.updateticketbtn = new System.Windows.Forms.Button();
             this.exitbtn1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
+            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.label58 = new System.Windows.Forms.Label();
+            this.departuretimetxtbox = new System.Windows.Forms.DateTimePicker();
+            this.arrivaltimetxtbox = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.bscomboBox = new System.Windows.Forms.ComboBox();
             this.label55 = new System.Windows.Forms.Label();
             this.busdetailsdgv = new System.Windows.Forms.DataGridView();
@@ -195,6 +204,9 @@ namespace Bus_Ticketing_System_1
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -206,16 +218,20 @@ namespace Bus_Ticketing_System_1
             this.deletebd = new System.Windows.Forms.Button();
             this.addbd = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.departuretimetxtbox = new System.Windows.Forms.DateTimePicker();
-            this.arrivaltimetxtbox = new System.Windows.Forms.DateTimePicker();
+            this.button12 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
             this.brcdgv = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sdsd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button14 = new System.Windows.Forms.Button();
             this.addemployeedgvs = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -291,6 +307,22 @@ namespace Bus_Ticketing_System_1
             this.bdd = new System.Windows.Forms.ErrorProvider(this.components);
             this.bdc = new System.Windows.Forms.ErrorProvider(this.components);
             this.bdbs = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderss = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderds = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderticno = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderbusno = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvidersources = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderdest = new System.Windows.Forms.ErrorProvider(this.components);
+            this.brcdfsd = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errnop = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorRoute = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorname = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorage = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvidergender = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvideraddress = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pph = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cost = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addemployeedgv)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -345,6 +377,22 @@ namespace Bus_Ticketing_System_1
             ((System.ComponentModel.ISupportInitialize)(this.bdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdbs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderss)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderds)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderticno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderbusno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvidersources)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderdest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brcdfsd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errnop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorRoute)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorname)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvidergender)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvideraddress)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pph)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cost)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage3
@@ -353,6 +401,7 @@ namespace Bus_Ticketing_System_1
             this.tabPage3.AllowDrop = true;
             this.tabPage3.BackColor = System.Drawing.Color.Aqua;
             this.tabPage3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage3.Controls.Add(this.button13);
             this.tabPage3.Controls.Add(this.addemployeedgv);
             this.tabPage3.Controls.Add(this.mailtextBox);
             this.tabPage3.Controls.Add(this.label43);
@@ -379,6 +428,14 @@ namespace Bus_Ticketing_System_1
             this.tabPage3.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Tag = "Employee";
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            resources.ApplyResources(this.button13, "button13");
+            this.button13.Name = "button13";
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // addemployeedgv
             // 
@@ -662,14 +719,11 @@ namespace Bus_Ticketing_System_1
             this.drivercomboBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.bdd.SetError(this.drivercomboBox, resources.GetString("drivercomboBox.Error"));
             this.drivercomboBox.FormattingEnabled = true;
-            this.drivercomboBox.Items.AddRange(new object[] {
-            resources.GetString("drivercomboBox.Items"),
-            resources.GetString("drivercomboBox.Items1"),
-            resources.GetString("drivercomboBox.Items2")});
             resources.ApplyResources(this.drivercomboBox, "drivercomboBox");
             this.drivercomboBox.Name = "drivercomboBox";
             this.drivercomboBox.Sorted = true;
             this.drivercomboBox.SelectedIndexChanged += new System.EventHandler(this.drivercomboBox_SelectedIndexChanged);
+            this.drivercomboBox.Click += new System.EventHandler(this.drivercomboBox_Click);
             this.drivercomboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.drivercomboBox_KeyUp);
             // 
             // chooseroutecomboBox
@@ -695,12 +749,10 @@ namespace Bus_Ticketing_System_1
             this.conductorcomboBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.bdc.SetError(this.conductorcomboBox, resources.GetString("conductorcomboBox.Error"));
             this.conductorcomboBox.FormattingEnabled = true;
-            this.conductorcomboBox.Items.AddRange(new object[] {
-            resources.GetString("conductorcomboBox.Items"),
-            resources.GetString("conductorcomboBox.Items1")});
             this.conductorcomboBox.Name = "conductorcomboBox";
             this.conductorcomboBox.Sorted = true;
             this.conductorcomboBox.SelectedIndexChanged += new System.EventHandler(this.conductorcomboBox_SelectedIndexChanged);
+            this.conductorcomboBox.Click += new System.EventHandler(this.conductorcomboBox_Click);
             this.conductorcomboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.conductorcomboBox_KeyUp);
             // 
             // bustypecomboBox
@@ -788,6 +840,7 @@ namespace Bus_Ticketing_System_1
             resources.ApplyResources(this.busnametxtbox, "busnametxtbox");
             this.busnametxtbox.Name = "busnametxtbox";
             this.busnametxtbox.TextChanged += new System.EventHandler(this.busnametxtbox_TextChanged);
+            this.busnametxtbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.busnametxtbox_KeyPress);
             // 
             // busnotxtbox
             // 
@@ -834,22 +887,6 @@ namespace Bus_Ticketing_System_1
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Name = "label11";
             // 
-            // label13
-            // 
-            this.label13.AllowDrop = true;
-            resources.ApplyResources(this.label13, "label13");
-            this.label13.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Name = "label13";
-            // 
-            // label12
-            // 
-            this.label12.AllowDrop = true;
-            resources.ApplyResources(this.label12, "label12");
-            this.label12.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Name = "label12";
-            // 
             // label8
             // 
             this.label8.AllowDrop = true;
@@ -894,6 +931,7 @@ namespace Bus_Ticketing_System_1
             this.brcdfs.SetError(this.distancefromsourcetxtbox, resources.GetString("distancefromsourcetxtbox.Error"));
             resources.ApplyResources(this.distancefromsourcetxtbox, "distancefromsourcetxtbox");
             this.distancefromsourcetxtbox.Name = "distancefromsourcetxtbox";
+            this.distancefromsourcetxtbox.TextChanged += new System.EventHandler(this.distancefromsourcetxtbox_TextChanged);
             this.distancefromsourcetxtbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.distancefromsourcetxtbox_KeyPress);
             // 
             // choosestationcomboBox
@@ -1019,6 +1057,7 @@ namespace Bus_Ticketing_System_1
             this.tabPage4.AllowDrop = true;
             this.tabPage4.BackColor = System.Drawing.Color.Aqua;
             this.tabPage4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage4.Controls.Add(this.button10);
             this.tabPage4.Controls.Add(this.addstationdgv);
             this.tabPage4.Controls.Add(this.stationaddresstxtbox);
             this.tabPage4.Controls.Add(this.routeidtxtbox);
@@ -1034,6 +1073,14 @@ namespace Bus_Ticketing_System_1
             this.tabPage4.Controls.Add(this.label14);
             this.tabPage4.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabPage4.Name = "tabPage4";
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            resources.ApplyResources(this.button10, "button10");
+            this.button10.Name = "button10";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // addstationdgv
             // 
@@ -1150,6 +1197,7 @@ namespace Bus_Ticketing_System_1
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseClick);
             // 
             // tabPage1
             // 
@@ -1159,6 +1207,7 @@ namespace Bus_Ticketing_System_1
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.searchticketdgv);
+            this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.deleteticketbtn);
             this.tabPage1.Controls.Add(this.updateticketbtn);
             this.tabPage1.Controls.Add(this.printticketbtn);
@@ -1188,6 +1237,7 @@ namespace Bus_Ticketing_System_1
             this.groupBox3.Controls.Add(this.passengergendercomboBox);
             this.groupBox3.Controls.Add(this.label22);
             this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Cursor = System.Windows.Forms.Cursors.Default;
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
             this.groupBox3.Name = "groupBox3";
@@ -1198,6 +1248,7 @@ namespace Bus_Ticketing_System_1
             // 
             this.passengeraddresstxtbox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.passengeraddresstxtbox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.errorProvideraddress.SetError(this.passengeraddresstxtbox, resources.GetString("passengeraddresstxtbox.Error"));
             this.passengeraddresstxtbox.FormattingEnabled = true;
             resources.ApplyResources(this.passengeraddresstxtbox, "passengeraddresstxtbox");
             this.passengeraddresstxtbox.Name = "passengeraddresstxtbox";
@@ -1216,18 +1267,27 @@ namespace Bus_Ticketing_System_1
             // 
             // passengerphonenumber
             // 
+            this.pph.SetError(this.passengerphonenumber, resources.GetString("passengerphonenumber.Error"));
             resources.ApplyResources(this.passengerphonenumber, "passengerphonenumber");
             this.passengerphonenumber.Name = "passengerphonenumber";
+            this.passengerphonenumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passengerphonenumber_KeyPress);
+            this.passengerphonenumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.passengerphonenumber_KeyUp);
             // 
             // passengeragetxtbox
             // 
+            this.errorage.SetError(this.passengeragetxtbox, resources.GetString("passengeragetxtbox.Error"));
             resources.ApplyResources(this.passengeragetxtbox, "passengeragetxtbox");
             this.passengeragetxtbox.Name = "passengeragetxtbox";
+            this.passengeragetxtbox.TextAlignChanged += new System.EventHandler(this.passengeragetxtbox_TextAlignChanged);
+            this.passengeragetxtbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passengeragetxtbox_KeyPress);
             // 
             // passengernametxtbox
             // 
+            this.errorname.SetError(this.passengernametxtbox, resources.GetString("passengernametxtbox.Error"));
             resources.ApplyResources(this.passengernametxtbox, "passengernametxtbox");
             this.passengernametxtbox.Name = "passengernametxtbox";
+            this.passengernametxtbox.TextChanged += new System.EventHandler(this.passengernametxtbox_TextChanged);
+            this.passengernametxtbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passengernametxtbox_KeyPress);
             // 
             // label19
             // 
@@ -1244,6 +1304,7 @@ namespace Bus_Ticketing_System_1
             this.passengergendercomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.passengergendercomboBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.passengergendercomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.errorProvidergender.SetError(this.passengergendercomboBox, resources.GetString("passengergendercomboBox.Error"));
             this.passengergendercomboBox.FormattingEnabled = true;
             this.passengergendercomboBox.Items.AddRange(new object[] {
             resources.GetString("passengergendercomboBox.Items"),
@@ -1251,6 +1312,7 @@ namespace Bus_Ticketing_System_1
             resources.GetString("passengergendercomboBox.Items2")});
             resources.ApplyResources(this.passengergendercomboBox, "passengergendercomboBox");
             this.passengergendercomboBox.Name = "passengergendercomboBox";
+            this.passengergendercomboBox.SelectedIndexChanged += new System.EventHandler(this.passengergendercomboBox_SelectedIndexChanged);
             // 
             // label22
             // 
@@ -1268,20 +1330,25 @@ namespace Bus_Ticketing_System_1
             this.label20.ForeColor = System.Drawing.Color.Black;
             this.label20.Name = "label20";
             // 
+            // textBox1
+            // 
+            resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.Name = "textBox1";
+            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Aqua;
             resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.dateTimePicker3);
+            this.groupBox2.Controls.Add(this.dateTimePicker2);
+            this.groupBox2.Controls.Add(this.dateTimePicker4);
             this.groupBox2.Controls.Add(this.busnocomboBox);
             this.groupBox2.Controls.Add(this.sourcestationcomboBox);
             this.groupBox2.Controls.Add(this.distancefromsourcetextBox);
             this.groupBox2.Controls.Add(this.destinationstationcombobox);
             this.groupBox2.Controls.Add(this.crcomboBox);
             this.groupBox2.Controls.Add(this.label39);
-            this.groupBox2.Controls.Add(this.dateTimePicker3);
             this.groupBox2.Controls.Add(this.label35);
-            this.groupBox2.Controls.Add(this.dateTimePicker4);
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.label28);
             this.groupBox2.Controls.Add(this.label21);
@@ -1301,11 +1368,32 @@ namespace Bus_Ticketing_System_1
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             this.groupBox2.UseCompatibleTextRendering = true;
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // dateTimePicker3
+            // 
+            resources.ApplyResources(this.dateTimePicker3, "dateTimePicker3");
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.ReadOnly = true;
+            // 
+            // dateTimePicker2
+            // 
+            resources.ApplyResources(this.dateTimePicker2, "dateTimePicker2");
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.ReadOnly = true;
+            // 
+            // dateTimePicker4
+            // 
+            resources.ApplyResources(this.dateTimePicker4, "dateTimePicker4");
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.ReadOnly = true;
             // 
             // busnocomboBox
             // 
             this.busnocomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.busnocomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.busnocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.errorProviderbusno.SetError(this.busnocomboBox, resources.GetString("busnocomboBox.Error"));
             this.busnocomboBox.FormattingEnabled = true;
             resources.ApplyResources(this.busnocomboBox, "busnocomboBox");
             this.busnocomboBox.Name = "busnocomboBox";
@@ -1318,6 +1406,7 @@ namespace Bus_Ticketing_System_1
             this.sourcestationcomboBox.AllowDrop = true;
             this.sourcestationcomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.sourcestationcomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.errorProvidersources.SetError(this.sourcestationcomboBox, resources.GetString("sourcestationcomboBox.Error"));
             this.sourcestationcomboBox.FormattingEnabled = true;
             resources.ApplyResources(this.sourcestationcomboBox, "sourcestationcomboBox");
             this.sourcestationcomboBox.Name = "sourcestationcomboBox";
@@ -1326,13 +1415,17 @@ namespace Bus_Ticketing_System_1
             // 
             // distancefromsourcetextBox
             // 
+            this.brcdfsd.SetError(this.distancefromsourcetextBox, resources.GetString("distancefromsourcetextBox.Error"));
             resources.ApplyResources(this.distancefromsourcetextBox, "distancefromsourcetextBox");
             this.distancefromsourcetextBox.Name = "distancefromsourcetextBox";
+            this.distancefromsourcetextBox.TextChanged += new System.EventHandler(this.distancefromsourcetextBox_TextChanged);
+            this.distancefromsourcetextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.distancefromsourcetextBox_KeyPress);
             // 
             // destinationstationcombobox
             // 
             this.destinationstationcombobox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.destinationstationcombobox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.errorProviderdest.SetError(this.destinationstationcombobox, resources.GetString("destinationstationcombobox.Error"));
             this.destinationstationcombobox.FormattingEnabled = true;
             resources.ApplyResources(this.destinationstationcombobox, "destinationstationcombobox");
             this.destinationstationcombobox.Name = "destinationstationcombobox";
@@ -1343,11 +1436,13 @@ namespace Bus_Ticketing_System_1
             // 
             this.crcomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.crcomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.errorRoute.SetError(this.crcomboBox, resources.GetString("crcomboBox.Error"));
             this.crcomboBox.FormattingEnabled = true;
             resources.ApplyResources(this.crcomboBox, "crcomboBox");
             this.crcomboBox.Name = "crcomboBox";
             this.crcomboBox.Sorted = true;
             this.crcomboBox.SelectedIndexChanged += new System.EventHandler(this.crcomboBox_SelectedIndexChanged);
+            this.crcomboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.crcomboBox_KeyUp);
             // 
             // label39
             // 
@@ -1357,12 +1452,6 @@ namespace Bus_Ticketing_System_1
             this.label39.ForeColor = System.Drawing.Color.Black;
             this.label39.Name = "label39";
             // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            resources.ApplyResources(this.dateTimePicker3, "dateTimePicker3");
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            // 
             // label35
             // 
             this.label35.AllowDrop = true;
@@ -1370,19 +1459,6 @@ namespace Bus_Ticketing_System_1
             this.label35.Cursor = System.Windows.Forms.Cursors.Default;
             this.label35.ForeColor = System.Drawing.Color.Black;
             this.label35.Name = "label35";
-            // 
-            // dateTimePicker4
-            // 
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            resources.ApplyResources(this.dateTimePicker4, "dateTimePicker4");
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Value = new System.DateTime(2021, 4, 30, 15, 36, 0, 0);
-            // 
-            // dateTimePicker2
-            // 
-            resources.ApplyResources(this.dateTimePicker2, "dateTimePicker2");
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Value = new System.DateTime(2021, 4, 1, 19, 34, 25, 0);
             // 
             // dateTimePicker1
             // 
@@ -1442,8 +1518,11 @@ namespace Bus_Ticketing_System_1
             // 
             // ticketnotxtbox
             // 
+            this.errorProviderticno.SetError(this.ticketnotxtbox, resources.GetString("ticketnotxtbox.Error"));
             resources.ApplyResources(this.ticketnotxtbox, "ticketnotxtbox");
             this.ticketnotxtbox.Name = "ticketnotxtbox";
+            this.ticketnotxtbox.TextChanged += new System.EventHandler(this.ticketnotxtbox_TextChanged);
+            this.ticketnotxtbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ticketnotxtbox_KeyPress);
             // 
             // label34
             // 
@@ -1471,13 +1550,20 @@ namespace Bus_Ticketing_System_1
             // 
             // noptextBox
             // 
+            this.errnop.SetError(this.noptextBox, resources.GetString("noptextBox.Error"));
             resources.ApplyResources(this.noptextBox, "noptextBox");
             this.noptextBox.Name = "noptextBox";
+            this.noptextBox.TextChanged += new System.EventHandler(this.noptextBox_TextChanged);
+            this.noptextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.noptextBox_KeyPress);
+            this.noptextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.noptextBox_KeyUp);
             // 
             // totalfarecosttxtbox
             // 
+            this.cost.SetError(this.totalfarecosttxtbox, resources.GetString("totalfarecosttxtbox.Error"));
             resources.ApplyResources(this.totalfarecosttxtbox, "totalfarecosttxtbox");
             this.totalfarecosttxtbox.Name = "totalfarecosttxtbox";
+            this.totalfarecosttxtbox.TextChanged += new System.EventHandler(this.totalfarecosttxtbox_TextChanged);
+            this.totalfarecosttxtbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.totalfarecosttxtbox_KeyPress);
             // 
             // searchticketdgv
             // 
@@ -1632,6 +1718,14 @@ namespace Bus_Ticketing_System_1
             resources.ApplyResources(this.Column38, "Column38");
             this.Column38.Name = "Column38";
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            resources.ApplyResources(this.button4, "button4");
+            this.button4.Name = "button4";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
             // deleteticketbtn
             // 
             this.deleteticketbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -1665,6 +1759,13 @@ namespace Bus_Ticketing_System_1
             this.tabPage2.AllowDrop = true;
             this.tabPage2.BackColor = System.Drawing.Color.Aqua;
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage2.Controls.Add(this.button11);
+            this.tabPage2.Controls.Add(this.dateTimePicker5);
+            this.tabPage2.Controls.Add(this.label58);
+            this.tabPage2.Controls.Add(this.departuretimetxtbox);
+            this.tabPage2.Controls.Add(this.arrivaltimetxtbox);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.bscomboBox);
             this.tabPage2.Controls.Add(this.label55);
             this.tabPage2.Controls.Add(this.busdetailsdgv);
@@ -1691,6 +1792,58 @@ namespace Bus_Ticketing_System_1
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabPage2.Name = "tabPage2";
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            resources.ApplyResources(this.button11, "button11");
+            this.button11.Name = "button11";
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // dateTimePicker5
+            // 
+            resources.ApplyResources(this.dateTimePicker5, "dateTimePicker5");
+            this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.Value = new System.DateTime(2021, 4, 1, 19, 34, 25, 0);
+            // 
+            // label58
+            // 
+            this.label58.AllowDrop = true;
+            resources.ApplyResources(this.label58, "label58");
+            this.label58.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label58.ForeColor = System.Drawing.Color.Black;
+            this.label58.Name = "label58";
+            // 
+            // departuretimetxtbox
+            // 
+            this.brcdt.SetError(this.departuretimetxtbox, resources.GetString("departuretimetxtbox.Error"));
+            this.departuretimetxtbox.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            resources.ApplyResources(this.departuretimetxtbox, "departuretimetxtbox");
+            this.departuretimetxtbox.Name = "departuretimetxtbox";
+            // 
+            // arrivaltimetxtbox
+            // 
+            this.brcat.SetError(this.arrivaltimetxtbox, resources.GetString("arrivaltimetxtbox.Error"));
+            this.arrivaltimetxtbox.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            resources.ApplyResources(this.arrivaltimetxtbox, "arrivaltimetxtbox");
+            this.arrivaltimetxtbox.Name = "arrivaltimetxtbox";
+            // 
+            // label13
+            // 
+            this.label13.AllowDrop = true;
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Name = "label13";
+            // 
+            // label12
+            // 
+            this.label12.AllowDrop = true;
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Name = "label12";
             // 
             // bscomboBox
             // 
@@ -1729,6 +1882,9 @@ namespace Bus_Ticketing_System_1
             this.Column9,
             this.Column10,
             this.Column11,
+            this.Column24,
+            this.Column22,
+            this.Column23,
             this.Column12,
             this.Column13,
             this.Column14,
@@ -1753,61 +1909,79 @@ namespace Bus_Ticketing_System_1
             // 
             // Column8
             // 
-            this.Column8.FillWeight = 89.26327F;
+            this.Column8.FillWeight = 76.40604F;
             resources.ApplyResources(this.Column8, "Column8");
             this.Column8.Name = "Column8";
             // 
             // Column9
             // 
-            this.Column9.FillWeight = 138.036F;
+            this.Column9.FillWeight = 118.1537F;
             resources.ApplyResources(this.Column9, "Column9");
             this.Column9.Name = "Column9";
             // 
             // Column10
             // 
-            this.Column10.FillWeight = 230.06F;
+            this.Column10.FillWeight = 196.9228F;
             resources.ApplyResources(this.Column10, "Column10");
             this.Column10.Name = "Column10";
             // 
             // Column11
             // 
-            this.Column11.FillWeight = 234.6612F;
+            this.Column11.FillWeight = 200.8613F;
             resources.ApplyResources(this.Column11, "Column11");
             this.Column11.Name = "Column11";
             // 
+            // Column24
+            // 
+            this.Column24.FillWeight = 171.4721F;
+            resources.ApplyResources(this.Column24, "Column24");
+            this.Column24.Name = "Column24";
+            // 
+            // Column22
+            // 
+            this.Column22.FillWeight = 198.4674F;
+            resources.ApplyResources(this.Column22, "Column22");
+            this.Column22.Name = "Column22";
+            // 
+            // Column23
+            // 
+            this.Column23.FillWeight = 211.2211F;
+            resources.ApplyResources(this.Column23, "Column23");
+            this.Column23.Name = "Column23";
+            // 
             // Column12
             // 
-            this.Column12.FillWeight = 184.048F;
+            this.Column12.FillWeight = 157.5382F;
             resources.ApplyResources(this.Column12, "Column12");
             this.Column12.Name = "Column12";
             // 
             // Column13
             // 
-            this.Column13.FillWeight = 138.036F;
+            this.Column13.FillWeight = 118.1537F;
             resources.ApplyResources(this.Column13, "Column13");
             this.Column13.Name = "Column13";
             // 
             // Column14
             // 
-            this.Column14.FillWeight = 230.06F;
+            this.Column14.FillWeight = 196.9228F;
             resources.ApplyResources(this.Column14, "Column14");
             this.Column14.Name = "Column14";
             // 
             // Column15
             // 
-            this.Column15.FillWeight = 230.06F;
+            this.Column15.FillWeight = 196.9228F;
             resources.ApplyResources(this.Column15, "Column15");
             this.Column15.Name = "Column15";
             // 
             // Column16
             // 
-            this.Column16.FillWeight = 230.06F;
+            this.Column16.FillWeight = 196.9228F;
             resources.ApplyResources(this.Column16, "Column16");
             this.Column16.Name = "Column16";
             // 
             // Column20
             // 
-            this.Column20.FillWeight = 247.7157F;
+            this.Column20.FillWeight = 212.0355F;
             resources.ApplyResources(this.Column20, "Column20");
             this.Column20.Name = "Column20";
             // 
@@ -1852,15 +2026,16 @@ namespace Bus_Ticketing_System_1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Aqua;
             resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Controls.Add(this.departuretimetxtbox);
-            this.groupBox1.Controls.Add(this.arrivaltimetxtbox);
+            this.groupBox1.Controls.Add(this.button12);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.label56);
+            this.groupBox1.Controls.Add(this.label57);
             this.groupBox1.Controls.Add(this.brcdgv);
             this.groupBox1.Controls.Add(this.deleteroutebtn);
             this.groupBox1.Controls.Add(this.updateroutebtn);
             this.groupBox1.Controls.Add(this.addroutebtn);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.distancefromsourcetxtbox);
@@ -1872,21 +2047,54 @@ namespace Bus_Ticketing_System_1
             this.groupBox1.TabStop = false;
             this.groupBox1.UseCompatibleTextRendering = true;
             // 
-            // departuretimetxtbox
+            // button12
             // 
-            this.brcdt.SetError(this.departuretimetxtbox, resources.GetString("departuretimetxtbox.Error"));
-            this.departuretimetxtbox.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            resources.ApplyResources(this.departuretimetxtbox, "departuretimetxtbox");
-            this.departuretimetxtbox.Name = "departuretimetxtbox";
-            this.departuretimetxtbox.ValueChanged += new System.EventHandler(this.departuretimetxtbox_ValueChanged);
+            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            resources.ApplyResources(this.button12, "button12");
+            this.button12.Name = "button12";
+            this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
-            // arrivaltimetxtbox
+            // comboBox1
             // 
-            this.brcat.SetError(this.arrivaltimetxtbox, resources.GetString("arrivaltimetxtbox.Error"));
-            this.arrivaltimetxtbox.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            resources.ApplyResources(this.arrivaltimetxtbox, "arrivaltimetxtbox");
-            this.arrivaltimetxtbox.Name = "arrivaltimetxtbox";
-            this.arrivaltimetxtbox.ValueChanged += new System.EventHandler(this.arrivaltimetxtbox_ValueChanged);
+            this.comboBox1.AllowDrop = true;
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.errorProviderss.SetError(this.comboBox1, resources.GetString("comboBox1.Error"));
+            this.comboBox1.FormattingEnabled = true;
+            resources.ApplyResources(this.comboBox1, "comboBox1");
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Sorted = true;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.comboBox1_KeyUp);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.errorProviderds.SetError(this.comboBox2, resources.GetString("comboBox2.Error"));
+            this.comboBox2.FormattingEnabled = true;
+            resources.ApplyResources(this.comboBox2, "comboBox2");
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Sorted = true;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.comboBox2_KeyUp);
+            // 
+            // label56
+            // 
+            this.label56.AllowDrop = true;
+            resources.ApplyResources(this.label56, "label56");
+            this.label56.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label56.ForeColor = System.Drawing.Color.Black;
+            this.label56.Name = "label56";
+            // 
+            // label57
+            // 
+            this.label57.AllowDrop = true;
+            resources.ApplyResources(this.label57, "label57");
+            this.label57.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label57.ForeColor = System.Drawing.Color.Black;
+            this.label57.Name = "label57";
             // 
             // brcdgv
             // 
@@ -1906,9 +2114,9 @@ namespace Bus_Ticketing_System_1
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15});
+            this.sdsd,
+            this.Column21,
+            this.dataGridViewTextBoxColumn13});
             this.brcdgv.Cursor = System.Windows.Forms.Cursors.Default;
             this.brcdgv.Name = "brcdgv";
             this.brcdgv.RowHeadersVisible = false;
@@ -1918,44 +2126,46 @@ namespace Bus_Ticketing_System_1
             // 
             // dataGridViewTextBoxColumn10
             // 
+            this.dataGridViewTextBoxColumn10.FillWeight = 103.0607F;
             resources.ApplyResources(this.dataGridViewTextBoxColumn10, "dataGridViewTextBoxColumn10");
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
             // dataGridViewTextBoxColumn11
             // 
-            this.dataGridViewTextBoxColumn11.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn11.FillWeight = 169.9925F;
             resources.ApplyResources(this.dataGridViewTextBoxColumn11, "dataGridViewTextBoxColumn11");
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             // 
             // dataGridViewTextBoxColumn12
             // 
-            this.dataGridViewTextBoxColumn12.FillWeight = 290F;
+            this.dataGridViewTextBoxColumn12.FillWeight = 199.9346F;
             resources.ApplyResources(this.dataGridViewTextBoxColumn12, "dataGridViewTextBoxColumn12");
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             // 
+            // sdsd
+            // 
+            this.sdsd.FillWeight = 191.1328F;
+            resources.ApplyResources(this.sdsd, "sdsd");
+            this.sdsd.Name = "sdsd";
+            // 
+            // Column21
+            // 
+            this.Column21.FillWeight = 203.934F;
+            resources.ApplyResources(this.Column21, "Column21");
+            this.Column21.Name = "Column21";
+            // 
             // dataGridViewTextBoxColumn13
             // 
-            this.dataGridViewTextBoxColumn13.FillWeight = 137F;
+            this.dataGridViewTextBoxColumn13.FillWeight = 141.1932F;
             resources.ApplyResources(this.dataGridViewTextBoxColumn13, "dataGridViewTextBoxColumn13");
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.FillWeight = 290F;
-            resources.ApplyResources(this.dataGridViewTextBoxColumn14, "dataGridViewTextBoxColumn14");
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.FillWeight = 290F;
-            resources.ApplyResources(this.dataGridViewTextBoxColumn15, "dataGridViewTextBoxColumn15");
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             // 
             // tabPage5
             // 
             resources.ApplyResources(this.tabPage5, "tabPage5");
             this.tabPage5.BackColor = System.Drawing.Color.Aqua;
             this.tabPage5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage5.Controls.Add(this.button14);
             this.tabPage5.Controls.Add(this.addemployeedgvs);
             this.tabPage5.Controls.Add(this.button2);
             this.tabPage5.Controls.Add(this.passtxtboxs);
@@ -1983,6 +2193,14 @@ namespace Bus_Ticketing_System_1
             this.tabPage5.Controls.Add(this.label53);
             this.tabPage5.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabPage5.Name = "tabPage5";
+            // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            resources.ApplyResources(this.button14, "button14");
+            this.button14.Name = "button14";
+            this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // addemployeedgvs
             // 
@@ -2283,11 +2501,16 @@ namespace Bus_Ticketing_System_1
             this.label53.Cursor = System.Windows.Forms.Cursors.Default;
             this.label53.Name = "label53";
             // 
+            // printDocument
+            // 
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
             // printPreviewDialog1
             // 
             resources.ApplyResources(this.printPreviewDialog1, "printPreviewDialog1");
             this.printPreviewDialog1.Document = this.printDocument;
             this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
             // 
             // empids
             // 
@@ -2511,6 +2734,100 @@ namespace Bus_Ticketing_System_1
             this.bdbs.ContainerControl = this;
             resources.ApplyResources(this.bdbs, "bdbs");
             // 
+            // errorProviderss
+            // 
+            this.errorProviderss.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderss.ContainerControl = this;
+            resources.ApplyResources(this.errorProviderss, "errorProviderss");
+            // 
+            // errorProviderds
+            // 
+            this.errorProviderds.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderds.ContainerControl = this;
+            resources.ApplyResources(this.errorProviderds, "errorProviderds");
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProviderticno
+            // 
+            this.errorProviderticno.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderticno.ContainerControl = this;
+            resources.ApplyResources(this.errorProviderticno, "errorProviderticno");
+            // 
+            // errorProviderbusno
+            // 
+            this.errorProviderbusno.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderbusno.ContainerControl = this;
+            resources.ApplyResources(this.errorProviderbusno, "errorProviderbusno");
+            // 
+            // errorProvidersources
+            // 
+            this.errorProvidersources.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvidersources.ContainerControl = this;
+            resources.ApplyResources(this.errorProvidersources, "errorProvidersources");
+            // 
+            // errorProviderdest
+            // 
+            this.errorProviderdest.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderdest.ContainerControl = this;
+            resources.ApplyResources(this.errorProviderdest, "errorProviderdest");
+            // 
+            // brcdfsd
+            // 
+            this.brcdfsd.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.brcdfsd.ContainerControl = this;
+            resources.ApplyResources(this.brcdfsd, "brcdfsd");
+            // 
+            // errnop
+            // 
+            this.errnop.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errnop.ContainerControl = this;
+            resources.ApplyResources(this.errnop, "errnop");
+            // 
+            // errorRoute
+            // 
+            this.errorRoute.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorRoute.ContainerControl = this;
+            resources.ApplyResources(this.errorRoute, "errorRoute");
+            // 
+            // errorname
+            // 
+            this.errorname.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorname.ContainerControl = this;
+            resources.ApplyResources(this.errorname, "errorname");
+            // 
+            // errorage
+            // 
+            this.errorage.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorage.ContainerControl = this;
+            resources.ApplyResources(this.errorage, "errorage");
+            // 
+            // errorProvidergender
+            // 
+            this.errorProvidergender.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvidergender.ContainerControl = this;
+            resources.ApplyResources(this.errorProvidergender, "errorProvidergender");
+            // 
+            // errorProvideraddress
+            // 
+            this.errorProvideraddress.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvideraddress.ContainerControl = this;
+            resources.ApplyResources(this.errorProvideraddress, "errorProvideraddress");
+            // 
+            // pph
+            // 
+            this.pph.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.pph.ContainerControl = this;
+            resources.ApplyResources(this.pph, "pph");
+            // 
+            // cost
+            // 
+            this.cost.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.cost.ContainerControl = this;
+            resources.ApplyResources(this.cost, "cost");
+            // 
             // mainadmin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -2586,6 +2903,22 @@ namespace Bus_Ticketing_System_1
             ((System.ComponentModel.ISupportInitialize)(this.bdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdbs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderss)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderds)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderticno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderbusno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvidersources)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderdest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brcdfsd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errnop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorRoute)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorname)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvidergender)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvideraddress)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pph)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cost)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2632,8 +2965,6 @@ namespace Bus_Ticketing_System_1
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
@@ -2714,12 +3045,6 @@ namespace Bus_Ticketing_System_1
         private System.Windows.Forms.DataGridViewTextBoxColumn Column56;
         private System.Windows.Forms.DataGridView busdetailsdgv;
         private System.Windows.Forms.DataGridView brcdgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridView searchticketdgv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -2760,10 +3085,7 @@ namespace Bus_Ticketing_System_1
         private System.Windows.Forms.ComboBox destinationstationcombobox;
         private System.Windows.Forms.ComboBox crcomboBox;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label21;
@@ -2780,16 +3102,6 @@ namespace Bus_Ticketing_System_1
         private System.Windows.Forms.TextBox totalfarecosttxtbox;
         private System.Windows.Forms.ComboBox bscomboBox;
         private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
         private System.Windows.Forms.ErrorProvider empids;
         private System.Windows.Forms.ErrorProvider enames;
         private System.Windows.Forms.ErrorProvider eroles;
@@ -2829,8 +3141,6 @@ namespace Bus_Ticketing_System_1
         private System.Windows.Forms.ErrorProvider brcat;
         private System.Windows.Forms.ErrorProvider brcn;
         private System.Windows.Forms.ErrorProvider brcid;
-        private System.Windows.Forms.DateTimePicker departuretimetxtbox;
-        private System.Windows.Forms.DateTimePicker arrivaltimetxtbox;
         private System.Windows.Forms.ErrorProvider bdbs;
         private System.Windows.Forms.ErrorProvider bdd;
         private System.Windows.Forms.ErrorProvider bdcr;
@@ -2840,5 +3150,60 @@ namespace Bus_Ticketing_System_1
         private System.Windows.Forms.ErrorProvider bdbns;
         private System.Windows.Forms.ErrorProvider bdbn;
         private System.Windows.Forms.ErrorProvider bdbno;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.ErrorProvider errorProviderss;
+        private System.Windows.Forms.ErrorProvider errorProviderds;
+        private System.Windows.Forms.DateTimePicker departuretimetxtbox;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sdsd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.TextBox dateTimePicker4;
+        private System.Windows.Forms.TextBox dateTimePicker3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProviderticno;
+        private System.Windows.Forms.ErrorProvider errorProviderbusno;
+        private System.Windows.Forms.ErrorProvider errorProvidersources;
+        private System.Windows.Forms.ErrorProvider errorProviderdest;
+        private System.Windows.Forms.ErrorProvider brcdfsd;
+        private System.Windows.Forms.ErrorProvider errnop;
+        private System.Windows.Forms.ErrorProvider errorRoute;
+        private System.Windows.Forms.ErrorProvider errorname;
+        private System.Windows.Forms.ErrorProvider errorage;
+        private System.Windows.Forms.ErrorProvider errorProvidergender;
+        private System.Windows.Forms.ErrorProvider errorProvideraddress;
+        private System.Windows.Forms.ErrorProvider pph;
+        private System.Windows.Forms.ErrorProvider cost;
+        private System.Windows.Forms.DateTimePicker arrivaltimetxtbox;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.TextBox dateTimePicker2;
     }
 }
