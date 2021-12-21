@@ -90,7 +90,7 @@ namespace Bus_Ticketing_System_1
                 }
                 else if (string.IsNullOrWhiteSpace(comboBoxRole.Text) || comboBoxRole.Text=="" && string.IsNullOrWhiteSpace(comboBoxUserName.Text) && string.IsNullOrWhiteSpace(textBox1.Text))
                 {
-                    MessageBox.Show("Enter the Missing Fields.");
+                   MessageBox.Show("Enter the Missing Fields.");
                 }
 
                 else if (string.IsNullOrWhiteSpace(comboBoxUserName.Text) && string.IsNullOrWhiteSpace(textBox1.Text))
@@ -118,7 +118,7 @@ namespace Bus_Ticketing_System_1
 
 
             }
-            catch(Exception ex)
+            catch(InvalidOperationException)
             {
               MessageBox.Show("Enter the Missing Fields.");
             }
@@ -193,11 +193,7 @@ namespace Bus_Ticketing_System_1
                 signupas si = new signupas();
                 si.Show();
             }
-         
-           
-           
-           
-        }
+         }
 
        
 
